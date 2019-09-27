@@ -6,20 +6,19 @@ import SelfEval from './Self-eval.js'
 import Goals from './Goals.js'
 import Resources from './Resources.js'
 
-class Item extends React.Component {
-    render() {
+function Item (props) {
       return (
           <div>
-        <a
-          rel="noopener noreferrer"
-          href={this.props.site}
-          target={this.props.target}
-        >
-          <i className="navlink ">{this.props.tag}</i>
-        </a>
+            <a
+            rel="noopener noreferrer"
+            href={props.site}
+            target={props.target}
+            >
+            <i className="navlink ">{props.tag}</i>
+            </a>
         </div>
       );
-    }
+    
   }
 
 class Navigation extends React.Component{
@@ -39,8 +38,6 @@ class Navigation extends React.Component{
                     <Route path="/Self-eval.js" component={SelfEval} />
                     <Route path="/Goals.js" component={Goals} />
                     <Route path="/Resources.js" component={Resources} />
-
-
                 </Router>
             </div>
         )
