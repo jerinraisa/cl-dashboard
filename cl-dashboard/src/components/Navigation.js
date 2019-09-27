@@ -5,6 +5,7 @@ import DailyTasks from './Daily-tasks.js'
 import SelfEval from './Self-eval.js'
 import Goals from './Goals.js'
 import Resources from './Resources.js'
+
 class Item extends React.Component {
     render() {
       return (
