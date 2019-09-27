@@ -6,7 +6,7 @@ import SelfEval from './Self-eval.js'
 import Goals from './Goals.js'
 import Resources from './Resources.js'
 
-function Item (props) {
+function PageLink (props) {
       return (
           <div>
             <a
@@ -17,27 +17,26 @@ function Item (props) {
             <i className="navlink ">{props.tag}</i>
             </a>
         </div>
-      );
-    
+      ); 
   }
 
 class Navigation extends React.Component{
     render(){
-        return (
+        return(
             <div> 
-                <Item site={"/Overview.js"} tag={"Overview"}></Item>
-                <Item site={"/Daily-tasks.js"} tag={"Daily Tasks"}></Item>
-                <Item site={"/Self-eval.js"} tag={"Self Evaluation"}></Item>
-                <Item site={"/Goals.js"} tag={"Goals"}></Item>
-                <Item site={"/Resources.js"} tag={"Resources"}></Item>
+                <PageLink site={"/overview"} tag={"Overview"}></PageLink>
+                <PageLink site={"/daily-tasks"} tag={"Daily Tasks"}></PageLink>
+                <PageLink site={"/self-evaluation"} tag={"Self Evaluation"}></PageLink>
+                <PageLink site={"/goals"} tag={"Goals"}></PageLink>
+                <PageLink site={"/resources"} tag={"Resources"}></PageLink>
 
                 <Router>
                     {/* <Route path="/" component={} /> */}
-                    <Route exact path="/Overview.js" component={Overview} />
-                    <Route path="/Daily-tasks.js" component={DailyTasks} />
-                    <Route path="/Self-eval.js" component={SelfEval} />
-                    <Route path="/Goals.js" component={Goals} />
-                    <Route path="/Resources.js" component={Resources} />
+                    <Route exact path="/" component={Overview} />
+                    <Route path="/daily-tasks" component={DailyTasks} />
+                    <Route path="/self-evaluation" component={SelfEval} />
+                    <Route path="/goals" component={Goals} />
+                    <Route path="/resources" component={Resources} />
                 </Router>
             </div>
         )
