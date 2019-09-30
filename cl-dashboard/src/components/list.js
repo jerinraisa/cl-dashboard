@@ -1,6 +1,6 @@
 import React from 'react';
 
-// simple to do list
+// simple to do
 
 const List = props => (
     <ul>
