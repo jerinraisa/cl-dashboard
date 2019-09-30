@@ -3,7 +3,10 @@ import React from 'react';
 class Goals extends React.Component{
     render(){
         return(
-            <div>Goals</div>
+            <div>
+                <h1>Goals</h1>
+
+            </div>
         )
     }
 }
