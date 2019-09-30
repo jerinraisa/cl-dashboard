@@ -1,70 +1,85 @@
-import React from 'react';
+import React from "react";
 
 // simple to do
 
 const List = props => (
-    <ul>
-      {
-        props.items.map((item, index) => <li key={index}>{item}</li>)
-      }
-    </ul>
-  );  
+  <ul>
+    {props.items.map((item, index) => (
+      <div key={index}>
+        <li>{item}</li>
+        <button onClick={e => props.remove(e, index)}>x</button>
+      </div>
+    ))}
+  </ul>
+);
 
-class Form extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            items: [], // array of items 
-            text: ''
-        }
+class Form extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [],
+      value: ""
+      // array of items
+      //   text: ""
+    };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this); 
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  // set value to input
+  handleChange(e) {
+    this.setState({ value: e.target.value });
+  }
+
+  // append item
+  handleSubmit(e) {
+    if (!this.state.value.replace(/\s/g, "").length) {
+      alert("Cannot add empty task.");
+      return;
     }
 
-    // set value to input 
-    handleChange(e){
-        this.setState({value: e.target.value}) 
+    this.setState({
+      items: [...this.state.items, this.state.value],
+      value: ""
+    });
+  }
+
+  onKeyPress = e => {
+    if (e.key === "Enter") {
+      this.handleSubmit(e);
     }
+  };
 
-    // 
-    handleSubmit(e){
-        if (this.state.value === ''){
-            alert('Cannot add empty task.'); 
-            e.preventDefault()
-        }
-        else {
-            const entry = {
-                text: this.state.value,
-                key: Date.now()
-            }
-            // uncomment when testing 
-
-            // alert ('Added: ' + entry.text);
-            e.preventDefault(); 
-            this.setState({
-                items: [...this.state.items, this.state.value],
-                value:''
-            })
-            
-
-        }
+  remove = (e, id) => {
+    // alert(id);
+    const { items } = this.state;
+    var index = id;
+    if (index !== -1) {
+      items.splice(index, 1);
     }
+    this.setState({
+      items: items
+    });
+  };
 
-
-    render(){
-        return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                <label>
-                    <input type="text" value={this.state.value} onChange={this.handleChange} placeholder="What did I do today?" />
-                </label>
-                <input type="submit" value="+" />
-                </form>
-                <List items={this.state.items} />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <label>
+          <input
+            type="text"
+            value={this.state.value}
+            onChange={this.handleChange}
+            placeholder="What did I do today?"
+            onKeyPress={this.onKeyPress}
+          />
+        </label>
+        <input type="button" value="+" onClick={this.handleSubmit} />
+        <List remove={this.remove} items={this.state.items} />
+      </div>
+    );
+  }
 }
 
-export default Form; 
+export default Form;
