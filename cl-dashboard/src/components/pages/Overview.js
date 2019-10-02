@@ -1,10 +1,11 @@
 import React from 'react'; 
+import Header from './Title'
 
 class Overview extends React.Component{
     render(){
         return(
             <div>
-                <h1>Overview</h1>
+                <Header>Overview</Header>
             </div>
         )
     }

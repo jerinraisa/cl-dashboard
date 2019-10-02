@@ -1,10 +1,11 @@
 import React from 'react'; 
+import Header from './Title'
 
 class Goals extends React.Component{
     render(){
         return(
             <div>
-                <h1>Goals</h1>
+                <Header>Goals</Header>
 
             </div>
         )

@@ -1,7 +1,42 @@
 import React from 'react';
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
-import {Pages} from './pages/pages.js'
+import { Pages } from './pages/pages.js'
+import styled from 'styled-components'
+import List from './list.js'
 
+const Container = styled.div`
+    display: flex;
+    align-items: center;
+    background: #FEFEFE;
+`;
+
+const TodayDate = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    color: #A7B0BC;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    // margin: 15px;
+    padding-right: 10px;
+    padding-top: 10px;
+    background: #FEFEFE;
+`;
+
+const NavWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 84.5vh;
+  width: 25vh;
+  justify-content: space-evenly;
+  padding-left: 40px;
+  padding-top: 40px;
+  background: #97AEF4;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800
+  font-size: 1em;
+  border-radius: 0px 36px 0px 0px;
+`;
 
 // Date settings
 var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -14,43 +49,47 @@ function PageLink (props) {
         rel="noopener noreferrer"
         href={props.site}
         target={props.target}
+        style={{paddingLeft: 13, textDecoration: 'none'}}
         >
         <i className="navlink ">{props.tag}</i>
         </a>
-    </div>
+        </div>
     ); 
 }
 
 
 class Navigation extends React.Component{
+
     render(){
         return(
-            <div> 
-
-                 {/* Current date  */}
-                 <h2>{d.toLocaleDateString("en-US", options)}</h2> 
-
-                {/* Nav side bar  */}
-                <PageLink site={"/overview"} tag={"Overview"}/>
-                <PageLink site={"/daily-tasks"} tag={"Daily Tasks"}/>
-                <PageLink site={"/self-evaluation"} tag={"Self Evaluation"}/>
-                <PageLink site={"/goals"} tag={"Goals"}/>
-                <PageLink site={"/resources"} tag={"Resources"}/>
-                
+            <>
+            <TodayDate>{d.toLocaleDateString("en-US", options)}</TodayDate> 
+            <Container>
+                <div>
                 {/* Routing for navigation bar  */}
                 <Router>
                     {Pages.map((page) => {
-                        
-                            return (
-                                <Route
-                                key={page.page}
-                                path={page.path}
-                                component={page.page}
-                                />
-                            )
-                            })}
+                        return (
+                            <Route
+                            key={page.page}
+                            path={page.path}
+                            component={page.page}
+                            />
+                        )
+                    })}
                 </Router>
-            </div>
+                <NavWrapper>
+                    {/* Nav side bar  */}
+                    <PageLink site={"/overview"} tag={"Overview"}/>
+                    <PageLink site={"/daily-tasks"} tag={"Daily Tasks"}/>
+                    <PageLink site={"/self-evaluation"} tag={"Self Evaluation"}/>
+                    <PageLink site={"/goals"} tag={"Goals"}/>
+                    <PageLink site={"/resources"} tag={"Resources"}/>
+                </NavWrapper>
+                </div>
+                {/* <List></List> */}
+            </Container>
+            </>
         )
     }
 }

@@ -1,10 +1,11 @@
-import React from 'react'; 
+import React from 'react';
+import Header from './Title'
 
 class SelfEval extends React.Component{
     render(){
         return(
             <div>
-                <h1>Self Evaluation</h1>
+                <Header>Self Evaluation</Header>
             </div>
         )
     }
