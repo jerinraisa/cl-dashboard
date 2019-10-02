@@ -71,7 +71,7 @@ class Form extends React.Component {
             type="text"
             value={this.state.value}
             onChange={this.handleChange}
-            placeholder="What did I do today?"
+            placeholder={this.props.placeholder}
             onKeyPress={this.onKeyPress}
           />
         </label>
