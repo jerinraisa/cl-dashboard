@@ -33,25 +33,6 @@ class Option extends React.Component {
       </div>
     );
   }
-
-  //   isSelected = () => {
-  //     if (this.state.selected) return "selected";
-  //     else return "notSelected";
-  //   };
-
-  //   render() {
-  //     return (
-  //       <div className={this.isSelected()}>
-  //         <button
-  //           type="button"
-  //           value={this.props.value}
-  //           onClick={this.handleClick}
-  //         >
-  //           {this.props.text}
-  //         </button>
-  //       </div>
-  //     );
-  //   }
 }
 
 class Reflection extends React.Component {

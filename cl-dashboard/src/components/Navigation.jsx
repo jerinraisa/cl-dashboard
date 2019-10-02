@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 import { Pages } from "./pages/pages.js";
 import styled from "styled-components";
-import List from "./List.jsx";
 
 const Container = styled.div`
   display: flex;
@@ -25,12 +24,14 @@ const TodayDate = styled.div`
 
 const NavWrapper = styled.div`
   display: flex;
+  position: fixed;
   flex-direction: column;
   height: 84.5vh;
   width: 25vh;
   justify-content: space-evenly;
   padding-left: 40px;
   padding-top: 40px;
+  bottom: 0;
   background: #97AEF4;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 800
@@ -47,22 +48,51 @@ var options = {
 };
 let d = new Date();
 
-function PageLink(props) {
+const PageLink = props => {
   return (
     <div>
       <a
         rel="noopener noreferrer"
         href={props.site}
-        target={props.target}
         style={{ paddingLeft: 13, textDecoration: "none" }}
+        // onClick={e => props.newPage(e, props.tag)}
       >
-        <i className="navlink ">{props.tag}</i>
+        <i className="navlink">{props.tag}</i>
       </a>
     </div>
   );
-}
+};
+
+// class PageLink extends React.Component {
+//   render(props) {
+//     return (
+//       <div>
+//         <a
+//           rel="noopener noreferrer"
+//           href={props.site}
+//           style={{ paddingLeft: 13, textDecoration: "none" }}
+//         >
+//           <i className="navlink ">{props.tag}</i>
+//         </a>
+//       </div>
+//     );
+//   }
+// }
 
 class Navigation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: ""
+    };
+  }
+
+  // newPage = (e, title) => {
+  //   this.setState({
+  //     title: title
+  //   });
+  // };
+
   render() {
     return (
       <>
@@ -70,6 +100,31 @@ class Navigation extends React.Component {
         <Container>
           <div>
             {/* Routing for navigation bar  */}
+            <h1>{this.state.title}</h1>
+            <NavWrapper>
+              {/* Nav side bar  */}
+              <PageLink
+                site={"/overview"}
+                tag={"Overview"}
+                // newPage={this.newPage}
+              />
+              <PageLink
+                site={"/daily-tasks"}
+                tag={"Daily Tasks"}
+                // newPage={this.newPage}
+              />
+              <PageLink
+                site={"/self-evaluation"}
+                tag={"Self Evaluation"}
+                // newPage={this.newPage}
+              />
+              <PageLink site={"/goals"} tag={"Goals"} newPage={this.newPage} />
+              <PageLink
+                site={"/resources"}
+                tag={"Resources"}
+                // newPage={this.newPage}
+              />
+            </NavWrapper>
             <Router>
               {Pages.map(page => {
                 return (
@@ -81,14 +136,6 @@ class Navigation extends React.Component {
                 );
               })}
             </Router>
-            <NavWrapper>
-              {/* Nav side bar  */}
-              <PageLink site={"/overview"} tag={"Overview"} />
-              <PageLink site={"/daily-tasks"} tag={"Daily Tasks"} />
-              <PageLink site={"/self-evaluation"} tag={"Self Evaluation"} />
-              <PageLink site={"/goals"} tag={"Goals"} />
-              <PageLink site={"/resources"} tag={"Resources"} />
-            </NavWrapper>
           </div>
           {/* <List></List> */}
         </Container>
