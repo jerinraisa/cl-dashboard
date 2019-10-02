@@ -63,22 +63,6 @@ const PageLink = props => {
   );
 };
 
-// class PageLink extends React.Component {
-//   render(props) {
-//     return (
-//       <div>
-//         <a
-//           rel="noopener noreferrer"
-//           href={props.site}
-//           style={{ paddingLeft: 13, textDecoration: "none" }}
-//         >
-//           <i className="navlink ">{props.tag}</i>
-//         </a>
-//       </div>
-//     );
-//   }
-// }
-
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
