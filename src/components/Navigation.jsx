@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 import { Pages } from "./pages/pages.js";
 import styled from "styled-components";
-import Logo from "../assets/icon.png";
+import Logo from "../assets/logo2.png";
 
 const Container = styled.div`
   display: flex;
@@ -38,13 +38,14 @@ const NavWrapper = styled.div`
   font-weight: 800
   font-size: 1em;
   border-radius: 0px 36px 0px 0px;
-  z-index: -10;
 `;
 
-const IconImage = {
+const IconImage = styled.img`
   display: "flex",
-  alignItems: "center"
-};
+  alignItems: "left"
+  max-width: 100px;
+  max-height: 100px;
+`;
 
 const ImgContainer = styled.div`
   display: "flex",
@@ -100,7 +101,7 @@ class Navigation extends React.Component {
             <h1>{this.state.title}</h1>
             <NavWrapper>
               <ImgContainer>
-                <img src={Logo} className="IconImage" />
+                <IconImage src={Logo}/>
               </ImgContainer>
               {/* Nav side bar  */}
               <PageLink
