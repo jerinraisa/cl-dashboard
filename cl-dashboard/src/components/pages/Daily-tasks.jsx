@@ -1,12 +1,11 @@
 import React from "react";
 import List from "../List.jsx";
-import Header from "./Title";
 
 class DailyTasks extends React.Component {
   render() {
     return (
       <div>
-        <Header>Daily Tasks</Header>
+        <h1>Daily Tasks</h1>
         <List />
       </div>
     );

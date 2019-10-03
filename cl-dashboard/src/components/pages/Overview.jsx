@@ -1,14 +1,13 @@
-import React from 'react'; 
-import Header from './Title'
+import React from "react";
 
-class Overview extends React.Component{
-    render(){
-        return(
-            <div>
-                <Header>Overview</Header>
-            </div>
-        )
-    }
+class Overview extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Overview</h1>
+      </div>
+    );
+  }
 }
 
 export default Overview;

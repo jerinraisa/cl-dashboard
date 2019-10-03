@@ -1,14 +1,13 @@
-import React from 'react'; 
-import Header from './Title'
+import React from "react";
 
-class Resources extends React.Component{
-    render(){
-        return(
-            <div>
-                <Header>Resources</Header>
-            </div>
-        )
-    }
+class Resources extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Resources</h1>
+      </div>
+    );
+  }
 }
 
 export default Resources;

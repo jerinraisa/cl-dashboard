@@ -88,7 +88,7 @@ class Navigation extends React.Component {
             <NavWrapper>
               {/* Nav side bar  */}
               <PageLink
-                site={"/overview"}
+                site={"/"}
                 tag={"Overview"}
                 // newPage={this.newPage}
               />

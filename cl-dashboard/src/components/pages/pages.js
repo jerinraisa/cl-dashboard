@@ -8,7 +8,7 @@ export const Pages = [
   {
     name: "Overview",
     page: Overview,
-    path: "/overview"
+    path: "/"
   },
   {
     name: "Daily Tasks",
