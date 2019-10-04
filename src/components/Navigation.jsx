@@ -10,6 +10,14 @@ const Container = styled.div`
   background: #fefefe;
 `;
 
+const MainContainer = styled.div`
+  padding-left: 33vh;
+  margin-top: 14vh;
+  width: 80%;
+  position: absolute;
+  border: 1px solid red;
+`;
+
 const TodayDate = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -17,7 +25,6 @@ const TodayDate = styled.div`
   text-align: right;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
-  // margin: 15px;
   padding-right: 10px;
   padding-top: 10px;
   background: #fefefe;
@@ -69,7 +76,7 @@ const PageLink = props => {
         rel="noopener noreferrer"
         href={props.site}
         style={{ paddingLeft: 13, textDecoration: "none" }}
-        // onClick={e => props.newPage(e, props.tag)}
+        onClick={e => props.newPage(e, props.tag)}
       >
         <i className="navlink">{props.tag}</i>
       </a>
@@ -85,11 +92,11 @@ class Navigation extends React.Component {
     };
   }
 
-  // newPage = (e, title) => {
-  //   this.setState({
-  //     title: title
-  //   });
-  // };
+  newPage = (e, title) => {
+    this.setState({
+      title: title
+    });
+  };
 
   render() {
     return (
@@ -98,42 +105,45 @@ class Navigation extends React.Component {
         <Container>
           <div>
             {/* Routing for navigation bar  */}
-            <h1>{this.state.title}</h1>
             <NavWrapper>
               <ImgContainer>
-                <IconImage src={Logo}/>
+                <IconImage src={Logo} />
               </ImgContainer>
               {/* Nav side bar  */}
               <PageLink
                 site={"/overview"}
                 tag={"Overview"}
-                // newPage={this.newPage}
+                newPage={this.newPage}
               />
               <PageLink
                 site={"/daily-tasks"}
                 tag={"Daily Tasks"}
-                // newPage={this.newPage}
+                newPage={this.newPage}
               />
               <PageLink
                 site={"/self-evaluation"}
                 tag={"Self Evaluation"}
-                // newPage={this.newPage}
+                newPage={this.newPage}
               />
               <PageLink site={"/goals"} tag={"Goals"} newPage={this.newPage} />
               <PageLink
                 site={"/resources"}
                 tag={"Resources"}
-                // newPage={this.newPage}
+                newPage={this.newPage}
               />
             </NavWrapper>
             <Router>
+              <h1>{this.state.title}</h1>
+
               {Pages.map(page => {
                 return (
-                  <Route
-                    key={page.page}
-                    path={page.path}
-                    component={page.page}
-                  />
+                  <MainContainer>
+                    <Route
+                      key={page.page}
+                      path={page.path}
+                      component={page.page}
+                    />
+                  </MainContainer>
                 );
               })}
             </Router>

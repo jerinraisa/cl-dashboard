@@ -1,5 +1,16 @@
 import React from "react";
+import styled from "styled-components";
 
+const ListCard = styled.div`
+  padding: 10px;
+  margin: 10px;
+  width: 100%;
+  border: 1px solid red;
+`;
+
+const AddButton = styled.div`
+  right: 0;
+`;
 // simple to do
 
 const List = props => (
@@ -26,6 +37,7 @@ class Form extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+  x;
 
   // set value to input
   handleChange(e) {
@@ -65,7 +77,7 @@ class Form extends React.Component {
 
   render() {
     return (
-      <div>
+      <ListCard>
         <label>
           <input
             type="text"
@@ -75,9 +87,14 @@ class Form extends React.Component {
             onKeyPress={this.onKeyPress}
           />
         </label>
-        <input type="button" value="+" onClick={this.handleSubmit} />
+        <input
+          type="button"
+          value="+"
+          onClick={this.handleSubmit}
+          className="AddButton"
+        />
         <List remove={this.remove} items={this.state.items} />
-      </div>
+      </ListCard>
     );
   }
 }
