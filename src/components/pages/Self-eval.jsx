@@ -28,9 +28,9 @@ class SelfEval extends React.Component {
     return (
       <div>
         <MainContainer>
-          <Row>
+          {/* <Row>
             <h1>Self Evaluation</h1>
-          </Row>
+          </Row> */}
           {/* Current Week */}
           <Row>
             <h2>Week: September 1 - September 3, 2019</h2>

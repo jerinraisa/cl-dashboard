@@ -31,7 +31,7 @@ class Option extends React.Component {
           {this.state.options.map((option, index) => (
             <button
               className={
-                this.state.active === index ? "selected" : "likert-option"
+                this.state.active === index ? "selected"  : "likert-option"
               }
               key={index}
               onClick={e => this.handleClick(e, index)}
@@ -40,7 +40,7 @@ class Option extends React.Component {
             </button>
           ))}
         </section>
-        <p> score: {this.state.value}</p>
+        {/* <p> score: {this.state.value}</p> */}
       </div>
     );
   }
@@ -76,10 +76,11 @@ class Reflection extends React.Component {
         <Option prompt={"I completed all of my assigned tasks."} />
         <Option prompt={"I collaborated with my coworkers."} />
         <Option prompt={"I improved on x skill."} />
-
+        <div>
         <button type={"submit"} onClick={this.submit}>
           Submit
         </button>
+        </div>
       </>
     );
   }

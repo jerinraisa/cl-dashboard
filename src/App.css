@@ -9,7 +9,7 @@ h1 {
   width: 100%;
   top: 0;
   /* padding-left: 38px; */
-  /* position: fixed; */
+  position: fixed;
 }
 
 h2 {
@@ -31,15 +31,14 @@ hr {
   border-radius: 1;
 }
 
-button {
-  display: flex;
-  border-image-slice: 1;
-  background: transparent;
-  border-radius: 99px;
-  border-width: 1.75px;
+a {
+  color: white;
 }
 
-button:hover {      
-  background: transparent;
-  color: linear-gradient(to bottom, #EF878D, #97AEF4);
+a:hover {
+  color: #EF878D;
+}
+
+a:active {
+  background-color: white;
 }

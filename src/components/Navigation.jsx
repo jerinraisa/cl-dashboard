@@ -4,43 +4,40 @@ import { Pages } from "./pages/pages.js";
 import styled from "styled-components";
 import Logo from "../assets/logo2.png";
 
-// const Container = styled.div`
-//   // display: flex;
-//   justify-content: flex-start;
-//   flex-direction: row !important;
-//   height: 100vh;
-//   margin: 0;
-// `;
-
 const PageContainer = styled.div`
   // display: flex;
   padding: 0px 10px;
   margin-left: 20%;
-  margin-top: 11vh;
+  // margin-top: 11vh;
   width: 70%;
   border: 1px solid red;
   height: 88vh;
 `;
 
 const Title = styled.div`
-  display: flex;
-  align-items: flex-end;
-  top: 0;
+display: flex;
+justify-content: flex-start;
+color: black;
+font-size: 2em;
+text-align: right;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: 900;
+background: #fefefe;
+border: 1px solid red;
+margin-left: 10px;
+align-self: center;
 `;
 
 const TodayDate = styled.div`
   display: flex;
   justify-content: flex-end;
   color: #a7b0bc;
-  top:0;
   text-align: right;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
   padding-right: 10px;
   padding-top: 10px;
   background: #fefefe;
-  position: fixed;
-  right: 0;
   border: 1px solid red;
 `;
 
@@ -53,7 +50,6 @@ const NavWrapper = styled.div`
   justify-content: space-evenly;
   padding-left: 40px;
   padding-top: 40px;
-  bottom: 0;
   background: #97AEF4;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 800;
@@ -91,11 +87,17 @@ const LinksContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
+  margin-left: 20px;
   width: 200px;
   height: 500px;
   border: 1px solid red;
 `;
 
+const TopWrapper = styled.div`
+  display: flex;
+  height: 90px;
+  justify-content: space-between;
+`;
 
 // Date settings
 var options = {
@@ -138,10 +140,16 @@ class Navigation extends React.Component {
   render() {
     return (
       <>
-        <TodayDate>{d.toLocaleDateString("en-US", options)}</TodayDate>
+        <TopWrapper>
+          <Title>Testing</Title>
+          {/* <Title>{this.state.title}</Title> */}
+          <TodayDate>{d.toLocaleDateString("en-US", options)}</TodayDate>
+        </TopWrapper>
+
           <div>
             {/* Routing for navigation bar  */}
-            <Title>{this.state.title}</Title>
+
+            {/* <Title>{this.state.title}</Title> */}
             <NavWrapper>
               <ProfileContainer>
                   <IconImage src={Logo} />
