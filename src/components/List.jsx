@@ -1,24 +1,31 @@
 import React from "react";
 import styled from "styled-components";
+import "./List.css";
 
 const ListCard = styled.div`
+  margin: 5px;
   padding: 10px;
-  margin: 10px;
-  width: 100%;
-  border: 1px solid red;
+  width: 50%;
+  height: 100%;
+  border: 1px solid gray;
+  border-radius: 10px;
 `;
 
-const AddButton = styled.div`
-  right: 0;
-`;
 // simple to do
 
 const List = props => (
   <ul>
     {props.items.map((item, index) => (
       <div key={index}>
-        <li>{item}</li>
-        <button onClick={e => props.remove(e, index)}>x</button>
+        <li>
+          {item}
+          <button
+            onClick={e => props.remove(e, index)}
+            className="remove-button"
+          >
+            x
+          </button>
+        </li>
       </div>
     ))}
   </ul>
@@ -85,14 +92,16 @@ class Form extends React.Component {
             onChange={this.handleChange}
             placeholder={this.props.placeholder}
             onKeyPress={this.onKeyPress}
+            className={"input-field"}
           />
         </label>
         <input
           type="button"
           value="+"
           onClick={this.handleSubmit}
-          className="AddButton"
+          className="add-button"
         />
+        <hr />
         <List remove={this.remove} items={this.state.items} />
       </ListCard>
     );

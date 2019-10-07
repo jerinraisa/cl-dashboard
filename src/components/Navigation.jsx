@@ -4,17 +4,20 @@ import { Pages } from "./pages/pages.js";
 import styled from "styled-components";
 import Logo from "../assets/logo2.png";
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  background: #fefefe;
-`;
+// const Container = styled.div`
+//   // display: flex;
+//   justify-content: flex-start;
+//   flex-direction: row !important;
+//   height: 100vh;
+//   margin: 0;
+// `;
 
-const MainContainer = styled.div`
-  padding-left: 33vh;
-  margin-top: 14vh;
-  width: 80%;
-  position: absolute;
+const PageContainer = styled.div`
+  // display: flex;
+  padding: 0px 10px;
+  margin-left: 20%;
+  margin-top: 11vh;
+  width: 70%;
   border: 1px solid red;
 `;
 
@@ -33,14 +36,16 @@ const TodayDate = styled.div`
   padding-right: 10px;
   padding-top: 10px;
   background: #fefefe;
+  position: fixed;
+  right: 0;
 `;
 
 const NavWrapper = styled.div`
   display: flex;
   position: fixed;
   flex-direction: column;
-  height: 84.5vh;
-  width: 25vh;
+  height: 85vh;
+  width: 14em;
   justify-content: space-evenly;
   padding-left: 40px;
   padding-top: 40px;
@@ -56,7 +61,7 @@ const IconImage = styled.img`
   display: flex;
   align-content: center;
   width: 100px;
-  
+
   height: 100px;
 `;
 
@@ -116,7 +121,6 @@ class Navigation extends React.Component {
     return (
       <>
         <TodayDate>{d.toLocaleDateString("en-US", options)}</TodayDate>
-        <Container>
           <div>
             {/* Routing for navigation bar  */}
             <NavWrapper>
@@ -148,24 +152,23 @@ class Navigation extends React.Component {
                 newPage={this.newPage}
               />
             </NavWrapper>
+            <PageContainer>
             <Router>
               {/* <Title>{this.state.title}</Title> */}
 
               {Pages.map(page => {
                 return (
-                  <MainContainer>
-                    <Route
-                      key={page.page}
-                      path={page.path}
-                      component={page.page}
-                    />
-                  </MainContainer>
+                  <Route
+                    key={page.page}
+                    path={page.path}
+                    component={page.page}
+                  />
                 );
               })}
             </Router>
-          </div>
-          {/* <List></List> */}
-        </Container>
+          </PageContainer>
+        </div>
+        {/* <List></List> */}
       </>
     );
   }
