@@ -18,6 +18,11 @@ const MainContainer = styled.div`
   border: 1px solid red;
 `;
 
+const Title = styled.div`
+  display: flex;
+  align-items: flex-start;
+`;
+
 const TodayDate = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -42,23 +47,32 @@ const NavWrapper = styled.div`
   bottom: 0;
   background: #97AEF4;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 800
+  font-weight: 800;
   font-size: 1em;
   border-radius: 0px 36px 0px 0px;
 `;
 
 const IconImage = styled.img`
-  display: "flex",
-  alignItems: "left"
-  max-width: 100px;
-  max-height: 100px;
+  display: flex;
+  align-content: center;
+  width: 100px;
+  
+  height: 100px;
 `;
 
-const ImgContainer = styled.div`
-  display: "flex",
-  max-width: 50px;
-  max-height: 50px;
+const NameText = styled.h1`
+  font-size: 20px;
+  font-weight: 800;
+  align-self: center;
 `;
+
+const ProfileContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 200px;
+`;
+
 
 // Date settings
 var options = {
@@ -106,9 +120,11 @@ class Navigation extends React.Component {
           <div>
             {/* Routing for navigation bar  */}
             <NavWrapper>
-              <ImgContainer>
-                <IconImage src={Logo} />
-              </ImgContainer>
+              <Title>{this.state.title}</Title>
+              <ProfileContainer>
+                  <IconImage src={Logo} />
+                  <NameText>Name</NameText>
+              </ProfileContainer>
               {/* Nav side bar  */}
               <PageLink
                 site={"/overview"}
@@ -133,7 +149,7 @@ class Navigation extends React.Component {
               />
             </NavWrapper>
             <Router>
-              <h1>{this.state.title}</h1>
+              {/* <Title>{this.state.title}</Title> */}
 
               {Pages.map(page => {
                 return (
