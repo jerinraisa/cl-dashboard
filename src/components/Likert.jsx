@@ -1,5 +1,6 @@
 import React from "react";
-
+import styled from "styled-components";
+import "./Likert.css";
 // likert scale for self evaluation with for options
 
 class Option extends React.Component {
@@ -22,14 +23,16 @@ class Option extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="item">
         <p>{this.props.prompt}</p>
+
         {this.state.options.map((option, index) => (
           <button key={index} onClick={e => this.handleClick(e, index)}>
             {option}
           </button>
         ))}
-        <h3> score: {this.state.value}</h3>
+
+        <p> score: {this.state.value}</p>
       </div>
     );
   }
@@ -60,14 +63,16 @@ class Reflection extends React.Component {
   }
   render() {
     return (
-      <div>
+      <>
         <Option prompt={"I managed my time well."} />
         <Option prompt={"I completed all of my assigned tasks."} />
+        <Option prompt={"I collaborated with my coworkers."} />
+        <Option prompt={"I improved on x skill."} />
 
         <button type={"submit"} onClick={this.submit}>
           Submit
         </button>
-      </div>
+      </>
     );
   }
 }
