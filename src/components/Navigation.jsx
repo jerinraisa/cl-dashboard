@@ -23,13 +23,15 @@ const PageContainer = styled.div`
 
 const Title = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
+  top: 0;
 `;
 
 const TodayDate = styled.div`
   display: flex;
   justify-content: flex-end;
   color: #a7b0bc;
+  top:0;
   text-align: right;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
@@ -38,6 +40,7 @@ const TodayDate = styled.div`
   background: #fefefe;
   position: fixed;
   right: 0;
+  border: 1px solid red;
 `;
 
 const NavWrapper = styled.div`
@@ -55,27 +58,41 @@ const NavWrapper = styled.div`
   font-weight: 800;
   font-size: 1em;
   border-radius: 0px 36px 0px 0px;
+  border: 1px solid red;
 `;
 
 const IconImage = styled.img`
   display: flex;
   align-content: center;
   width: 100px;
-
   height: 100px;
+  border: 1px solid red;
 `;
 
 const NameText = styled.h1`
   font-size: 20px;
   font-weight: 800;
-  align-self: center;
+  justify-content: center;
+  border: 1px solid red;
 `;
 
 const ProfileContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  width: 100px;
+  margin-left: 45px;
+  // border: 1px solid red;
+`;
+
+const LinksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   align-items: flex-start;
   width: 200px;
+  height: 500px;
+  border: 1px solid red;
 `;
 
 
@@ -123,12 +140,13 @@ class Navigation extends React.Component {
         <TodayDate>{d.toLocaleDateString("en-US", options)}</TodayDate>
           <div>
             {/* Routing for navigation bar  */}
+            <Title>{this.state.title}</Title>
             <NavWrapper>
-              <Title>{this.state.title}</Title>
               <ProfileContainer>
                   <IconImage src={Logo} />
                   <NameText>Name</NameText>
               </ProfileContainer>
+              <LinksContainer>
               {/* Nav side bar  */}
               <PageLink
                 site={"/overview"}
@@ -151,6 +169,7 @@ class Navigation extends React.Component {
                 tag={"Resources"}
                 newPage={this.newPage}
               />
+              </LinksContainer>
             </NavWrapper>
             <PageContainer>
             <Router>
