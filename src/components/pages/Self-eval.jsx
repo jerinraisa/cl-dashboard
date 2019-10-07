@@ -8,19 +8,19 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
-const Row = styled.div``;
+const Row = styled.div`
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-wrap: wrap;
+  align-content: space-bewteen;
+  justify-content: space-between;
+`;
 const ListContainer = styled.div`
   display: flex;
   padding: 0 !important;
   width: 100%;
-  border: 1px solid green;
   height: 35vh;
-`;
-
-const ReflectionContainer = styled.div`
-  bottom: 2vh;
-  display: flex;
-  border: 1px solid green;
 `;
 
 class SelfEval extends React.Component {
@@ -42,9 +42,9 @@ class SelfEval extends React.Component {
           <Row>
             <h2>Weekly Reflection</h2>
           </Row>
-          <ReflectionContainer>
+          <Row>
             <Reflection></Reflection>
-          </ReflectionContainer>
+          </Row>
         </MainContainer>
       </div>
     );

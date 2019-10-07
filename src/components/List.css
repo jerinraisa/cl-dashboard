@@ -28,12 +28,6 @@ input:focus {
   outline: 0 !important;
 }
 
-hr {
-  margin: 5px 10px;
-  border: 0.5px solid gray;
-  border-radius: 1;
-}
-
 .remove-button {
   display: inline-block;
   color: red;
