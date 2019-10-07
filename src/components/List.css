@@ -33,7 +33,7 @@ input:focus {
   float: right;
   color: #d38492;
   border: 0;
-  right: 0;
+  margin-right: 10px;
   background: transparent;
 }
 
@@ -46,4 +46,5 @@ ul {
 
 li {
   width: 100%;
+  padding: 5px;
 }

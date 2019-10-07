@@ -42,7 +42,7 @@
   transition: all 0.3s;
 }
 
-.likert-option:hover {
+.likert-option:hover:enabled {
   transform: scale(1.1) translateY(-5px);
   transition: all 0.3s;
 }
