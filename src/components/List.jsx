@@ -6,9 +6,11 @@ const ListCard = styled.div`
   margin: 5px;
   padding: 10px;
   width: 50%;
-  height: 100%;
+  height: auto;
+  max-height: 100%;
   border: 1px solid gray;
   border-radius: 10px;
+  overflow: auto;
 `;
 
 // simple to do

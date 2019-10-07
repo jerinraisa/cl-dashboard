@@ -12,6 +12,10 @@ h1 {
   /* position: fixed; */
 }
 
+h2 {
+  color: #314760;
+}
+
 p {
-  color: gray;
+  color: #314760;
 }

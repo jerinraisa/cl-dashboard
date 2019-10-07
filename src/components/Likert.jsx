@@ -63,6 +63,7 @@ class Reflection extends React.Component {
       <div>
         <Option prompt={"I managed my time well."} />
         <Option prompt={"I completed all of my assigned tasks."} />
+
         <button type={"submit"} onClick={this.submit}>
           Submit
         </button>
