@@ -8,6 +8,7 @@ class Option extends React.Component {
     super(props);
     this.state = {
       locked: false,
+      active: "",
       options: ["strongly disagree", "disagree", "agree", "strongly agree"],
       value: 0
       // map week number and submitted (t/f) to ensure one submit / week
@@ -17,7 +18,8 @@ class Option extends React.Component {
   // set value with button
   handleClick = (e, key) => {
     this.setState({
-      value: key
+      value: key,
+      active: key
     });
   };
 
@@ -25,13 +27,19 @@ class Option extends React.Component {
     return (
       <div className="item">
         <p>{this.props.prompt}</p>
-
-        {this.state.options.map((option, index) => (
-          <button key={index} onClick={e => this.handleClick(e, index)}>
-            {option}
-          </button>
-        ))}
-
+        <section>
+          {this.state.options.map((option, index) => (
+            <button
+              className={
+                this.state.active === index ? "selected" : "likert-option"
+              }
+              key={index}
+              onClick={e => this.handleClick(e, index)}
+            >
+              {option}
+            </button>
+          ))}
+        </section>
         <p> score: {this.state.value}</p>
       </div>
     );

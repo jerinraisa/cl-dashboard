@@ -8,6 +8,47 @@
   overflow: auto;
 }
 
-.item-option div:nth-child(1) {
-  color: red;
+.likert-option:nth-child(1) {
+  color: #ba5f65;
+  border: 1px solid #ba5f65;
+}
+.likert-option:nth-child(2) {
+  color: #cb8589;
+}
+.likert-option:nth-child(3) {
+  color: #97a470;
+}
+.likert-option:nth-child(4) {
+  color: #849357;
+}
+
+.likert-option {
+  border: 1px solid gray;
+  border-radius: 30px;
+  color: blue;
+  margin: 10px;
+  background: transparent;
+}
+
+.selected {
+  border: 1px solid gray;
+  border-radius: 30px;
+
+  margin: 10px;
+  background: transparent;
+  color: #ef42e8;
+  transition: all 0.3s;
+}
+
+.likert-option:hover {
+  transform: scale(1.1) translateY(-5px);
+  transition: all 0.3s;
+}
+
+.likert-option:focus {
+  outline: 0;
+}
+
+.selected:focus {
+  outline: 0;
 }
