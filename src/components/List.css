@@ -30,12 +30,16 @@ input:focus {
 
 .remove-button {
   display: inline-block;
-  color: red;
+  float: right;
+  color: #d38492;
   border: 0;
   right: 0;
   background: transparent;
 }
 
+.remove-button:focus {
+  outline: 0;
+}
 ul {
   color: #314760;
 }

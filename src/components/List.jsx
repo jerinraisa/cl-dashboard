@@ -20,12 +20,12 @@ const List = props => (
     {props.items.map((item, index) => (
       <div key={index}>
         <li>
-          {item}
+          {item}{" "}
           <button
             onClick={e => props.remove(e, index)}
             className="remove-button"
           >
-            x
+            &#9747;
           </button>
         </li>
       </div>

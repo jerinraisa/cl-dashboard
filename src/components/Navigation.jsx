@@ -4,13 +4,13 @@ import { Pages } from "./pages/pages.js";
 import styled from "styled-components";
 import Logo from "../assets/logo2.png";
 
-const Container = styled.div`
-  // display: flex;
-  justify-content: flex-start;
-  flex-direction: row !important;
-  height: 100vh;
-  margin: 0;
-`;
+// const Container = styled.div`
+//   // display: flex;
+//   justify-content: flex-start;
+//   flex-direction: row !important;
+//   height: 100vh;
+//   margin: 0;
+// `;
 
 const PageContainer = styled.div`
   // display: flex;

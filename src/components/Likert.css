@@ -27,6 +27,8 @@
   border-radius: 30px;
   color: blue;
   margin: 10px;
+  transition: all 0.3s;
+
   background: transparent;
 }
 
