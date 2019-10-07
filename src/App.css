@@ -16,6 +16,11 @@ h2 {
   color: #314760;
 }
 
+h3 {
+  display: flex;
+  color: white;
+}
+
 p {
   color: #314760;
 }
@@ -24,4 +29,17 @@ hr {
   margin: 5px 10px;
   border: 0.5px solid gray;
   border-radius: 1;
+}
+
+button {
+  display: flex;
+  border-image-slice: 1;
+  background: transparent;
+  border-radius: 99px;
+  border-width: 1.75px;
+}
+
+button:hover {      
+  background: transparent;
+  color: linear-gradient(to bottom, #EF878D, #97AEF4);
 }

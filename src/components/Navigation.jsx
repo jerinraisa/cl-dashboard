@@ -70,7 +70,7 @@ const IconImage = styled.img`
   border: 1px solid red;
 `;
 
-const NameText = styled.h1`
+const NameText = styled.h3`
   font-size: 20px;
   font-weight: 800;
   justify-content: center;
