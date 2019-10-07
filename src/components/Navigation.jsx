@@ -19,6 +19,7 @@ const PageContainer = styled.div`
   margin-top: 11vh;
   width: 70%;
   border: 1px solid red;
+  height: 88vh;
 `;
 
 const TodayDate = styled.div`
