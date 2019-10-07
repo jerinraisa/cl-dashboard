@@ -10,3 +10,7 @@ h1 {
   padding-left: 38px;
   position: fixed;
 }
+
+p {
+  color: gray;
+}
