@@ -14,8 +14,17 @@ const Row = styled.div`
   height: auto;
   flex-wrap: wrap;
   align-content: space-bewteen;
+  border-bottom: 1px solid black;
   justify-content: space-between;
 `;
+const Row2 = styled.div`
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-wrap: wrap;
+  align-content: space-bewteen;
+`;
+
 const ListContainer = styled.div`
   display: flex;
   padding: 0 !important;
@@ -39,12 +48,12 @@ class SelfEval extends React.Component {
             <List placeholder={"Something I learned this week..."} />
             <List placeholder={"Something I accomplished this week..."} />
           </ListContainer>
-          <Row>
+          <Row2>
             <h2>Weekly Reflection</h2>
-          </Row>
-          <Row>
+          </Row2>
+          <Row2>
             <Reflection></Reflection>
-          </Row>
+          </Row2>
         </MainContainer>
       </div>
     );

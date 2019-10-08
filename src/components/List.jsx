@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "./List.css";
 
 const ListCard = styled.div`
-  margin: 5px;
+  margin: 20px;
   padding: 10px;
   width: 50%;
   height: auto;
