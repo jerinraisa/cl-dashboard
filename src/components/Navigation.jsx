@@ -1,44 +1,19 @@
 import React from "react";
-import { Route, Link, BrowserRouter as Router } from "react-router-dom";
+import {
+  Route,
+  Switch,
+  NavLink,
+  BrowserRouter as Router
+} from "react-router-dom";
 import { Pages } from "./pages/pages.js";
 import styled from "styled-components";
 import Logo from "../assets/logo2.png";
 
 const PageContainer = styled.div`
-  // display: flex;
   padding: 0px 10px;
   margin-left: 20%;
-  // margin-top: 11vh;
   width: 70%;
-  border: 1px solid red;
   height: 88vh;
-`;
-
-const Title = styled.div`
-display: flex;
-justify-content: flex-start;
-color: black;
-font-size: 2em;
-text-align: right;
-font-family: Arial, Helvetica, sans-serif;
-font-weight: 900;
-background: #fefefe;
-border: 1px solid red;
-margin-left: 10px;
-align-self: center;
-`;
-
-const TodayDate = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  color: #a7b0bc;
-  text-align: right;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
-  padding-right: 10px;
-  padding-top: 10px;
-  background: #fefefe;
-  border: 1px solid red;
 `;
 
 const NavWrapper = styled.div`
@@ -46,16 +21,14 @@ const NavWrapper = styled.div`
   position: fixed;
   flex-direction: column;
   height: 85vh;
-  width: 14em;
+  width: 12em;
   justify-content: space-evenly;
-  padding-left: 40px;
+  padding-left: 4.5em;
   padding-top: 40px;
-  background: #97AEF4;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 800;
+  background: #97aef4;
   font-size: 1em;
   border-radius: 0px 36px 0px 0px;
-  border: 1px solid red;
+  border: 1px solid green;
 `;
 
 const IconImage = styled.img`
@@ -63,14 +36,12 @@ const IconImage = styled.img`
   align-content: center;
   width: 100px;
   height: 100px;
-  border: 1px solid red;
 `;
 
 const NameText = styled.h3`
   font-size: 20px;
   font-weight: 800;
   justify-content: center;
-  border: 1px solid red;
 `;
 
 const ProfileContainer = styled.div`
@@ -78,25 +49,14 @@ const ProfileContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   width: 100px;
-  margin-left: 45px;
   // border: 1px solid red;
-`;
-
-const LinksContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  margin-left: 20px;
-  width: 200px;
-  height: 500px;
-  border: 1px solid red;
 `;
 
 const TopWrapper = styled.div`
   display: flex;
-  height: 90px;
+  height: 11vh;
   justify-content: space-between;
+  padding: 0 10px;
 `;
 
 // Date settings
@@ -108,29 +68,16 @@ var options = {
 };
 let d = new Date();
 
-const PageLink = props => {
-  return (
-    <div>
-      <a
-        rel="noopener noreferrer"
-        href={props.site}
-        style={{ paddingLeft: 13, textDecoration: "none" }}
-        onClick={e => props.newPage(e, props.tag)}
-      >
-        <i className="navlink">{props.tag}</i>
-      </a>
-    </div>
-  );
-};
-
 class Navigation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ""
+      title: "Overview"
     };
   }
 
+  // there is definitely a much more efficient way of doing this
+  // need to refactor code for this functionality
   newPage = (e, title) => {
     this.setState({
       title: title
@@ -141,60 +88,63 @@ class Navigation extends React.Component {
     return (
       <>
         <TopWrapper>
-          <Title>Testing</Title>
-          {/* <Title>{this.state.title}</Title> */}
-          <TodayDate>{d.toLocaleDateString("en-US", options)}</TodayDate>
+          <h4>{this.state.title}</h4>
+          <h4>{d.toLocaleDateString("en-US", options)}</h4>
         </TopWrapper>
 
-          <div>
-            {/* Routing for navigation bar  */}
-
-            {/* <Title>{this.state.title}</Title> */}
+        <div>
+          <Router>
             <NavWrapper>
               <ProfileContainer>
-                  <IconImage src={Logo} />
-                  <NameText>Name</NameText>
+                <IconImage src={Logo} />
+                <NameText>Name</NameText>
               </ProfileContainer>
-              <LinksContainer>
               {/* Nav side bar  */}
-              <PageLink
-                site={"/overview"}
-                tag={"Overview"}
-                newPage={this.newPage}
-              />
-              <PageLink
-                site={"/daily-tasks"}
-                tag={"Daily Tasks"}
-                newPage={this.newPage}
-              />
-              <PageLink
-                site={"/self-evaluation"}
-                tag={"Self Evaluation"}
-                newPage={this.newPage}
-              />
-              <PageLink site={"/goals"} tag={"Goals"} newPage={this.newPage} />
-              <PageLink
-                site={"/resources"}
-                tag={"Resources"}
-                newPage={this.newPage}
-              />
-              </LinksContainer>
+              <NavLink
+                to={"/overview"}
+                title="Overview"
+                activeClassName=""
+                onClick={e => this.newPage(e, "Overview")}
+              >
+                Overview
+              </NavLink>
+              <NavLink
+                to={"/daily-tasks"}
+                onClick={e => this.newPage(e, "Daily Tasks")}
+              >
+                Daily Tasks
+              </NavLink>
+              <NavLink
+                to={"/self-evaluation"}
+                onClick={e => this.newPage(e, "Self Evaluation")}
+              >
+                Self Evaluation
+              </NavLink>
+              <NavLink to={"/goals"} onClick={e => this.newPage(e, "Goals")}>
+                Goals
+              </NavLink>
+              <NavLink
+                to={"/resources"}
+                onClick={e => this.newPage(e, "Resources")}
+              >
+                Resources
+              </NavLink>
             </NavWrapper>
+            {/* <Title>{this.state.title}</Title> */}
             <PageContainer>
-            <Router>
-              {/* <Title>{this.state.title}</Title> */}
-
-              {Pages.map(page => {
-                return (
-                  <Route
-                    key={page.page}
-                    path={page.path}
-                    component={page.page}
-                  />
-                );
-              })}
-            </Router>
-          </PageContainer>
+              <Switch>
+                {Pages.map(page => {
+                  return (
+                    <Route
+                      key={page.page}
+                      path={page.path}
+                      component={page.page}
+                    />
+                  );
+                })}
+              </Switch>
+            </PageContainer>
+          </Router>
         </div>
         {/* <List></List> */}
       </>

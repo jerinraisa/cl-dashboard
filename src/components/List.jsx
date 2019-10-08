@@ -46,8 +46,6 @@ class Form extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  x;
-
   // set value to input
   handleChange(e) {
     this.setState({ value: e.target.value });

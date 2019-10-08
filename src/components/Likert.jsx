@@ -33,7 +33,7 @@ class Option extends React.Component {
           {this.state.options.map((option, index) => (
             <button
               className={
-                this.state.active === index ? "selected"  : "likert-option"
+                this.state.active === index ? "selected" : "likert-option"
               }
               key={index}
               disabled={submitted}
