@@ -6,6 +6,7 @@ import { MainContainer, Row } from "../Sections.jsx";
 
 const ListContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   padding: 0 !important;
   width: 100%;
   height: 35vh;

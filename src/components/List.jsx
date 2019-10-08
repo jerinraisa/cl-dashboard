@@ -3,9 +3,9 @@ import styled from "styled-components";
 import "./List.css";
 
 const ListCard = styled.div`
-  margin: 20px;
+  margin: 3vh 0;
   padding: 10px;
-  width: 50%;
+  width: 47%;
   height: auto;
   max-height: 100%;
   border: 1px solid gray;
