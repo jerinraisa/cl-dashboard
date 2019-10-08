@@ -9,16 +9,16 @@
   overflow: auto;
 }
 
-.likert-option:nth-child(1) {
+.likert-option:nth-child(1):enabled {
   /* margin-left: 0px !important; */
   color: #ba5f65;
   border: 1px solid #ba5f65;
 }
-.likert-option:nth-child(2) {
+.likert-option:nth-child(2):enabled {
   color: #cb8589;
   border: 1px solid #cb8589;
 }
-.likert-option:nth-child(3) {
+.likert-option:nth-child(3):enabled {
   color: #97a470;
   border: 1px solid #97a470;
 }
