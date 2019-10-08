@@ -21,10 +21,10 @@ const NavWrapper = styled.div`
   position: fixed;
   flex-direction: column;
   height: 84vh;
-  width: 12em;
+  width: 200px;
   bottom: 0;
   justify-content: space-evenly;
-  padding-left: 4.5em;
+  padding-left: 3em;
   padding-top: 10px;
   padding-bottom: 40px;
   background: #97aef4;
@@ -37,14 +37,15 @@ const IconImage = styled.img`
   align-content: center;
   width: 100px;
   height: 100px;
-  padding: 10px;
+  // padding: 10px;
 `;
 
 const NameText = styled.h3`
   font-size: 20px;
   font-weight: 700;
   color: white;
-  justify-content: center;
+  align-self: center;
+  padding: 0;
 `;
 
 const ProfileContainer = styled.div`
@@ -52,7 +53,6 @@ const ProfileContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   width: 100px;
-  // border: 1px solid red;
 `;
 
 const TopWrapper = styled.div`
@@ -133,7 +133,6 @@ class Navigation extends React.Component {
                 Resources
               </NavLink>
             </NavWrapper>
-            {/* <Title>{this.state.title}</Title> */}
             <PageContainer>
               <Switch>
                 {Pages.map(page => {
@@ -149,7 +148,6 @@ class Navigation extends React.Component {
             </PageContainer>
           </Router>
         </div>
-        {/* <List></List> */}
       </>
     );
   }

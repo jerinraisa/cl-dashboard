@@ -20,13 +20,14 @@ h2 {
 h3 {
   color: #313660;
   font-size: 1.7em;
+  padding-left: 38px;
 }
 
 h4 {
   color: #6f7e8f;
   font-size: 1.3em;
   font-weight: 400;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 p {
@@ -40,9 +41,17 @@ hr {
 }
 
 a {
-  color: white;
-  text-decoration-line: none;
+  padding: 10px 0 0 30px;
   font-weight: 700;
+  color: white;
+  text-decoration: none;
+  height: 30px;
+  border-radius: 20px 0px 0px 20px;
+}
+
+a:hover {
+  background: #ffffff;
+  color: #ef878d;
 }
 
 ul {
