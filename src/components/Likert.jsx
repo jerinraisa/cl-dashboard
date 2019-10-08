@@ -1,17 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import "./Likert.css";
 // likert scale for self evaluation with for options
-
-
-const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  // margin-right: 6%;
-  // margin-top: 11vh;
-  width: 100%;
-  // border: 1px solid red;
-`;
 
 let submitted = false; // add a condition for when the week resets
 
@@ -43,7 +32,7 @@ class Option extends React.Component {
           {this.state.options.map((option, index) => (
             <button
               className={
-                this.state.active === index ? "selected"  : "likert-option"
+                this.state.active === index ? "selected" : "likert-option"
               }
               key={index}
               disabled={submitted}
@@ -90,9 +79,9 @@ class Reflection extends React.Component {
         <Option prompt={"I completed all of my assigned tasks."} />
         <Option prompt={"I collaborated with my coworkers."} />
         <Option prompt={"I improved on x skill."} />
-        <ButtonContainer>
-        <button className = "submitButton">Submit</button>
-        </ButtonContainer>
+        <button type={"submit"} onClick={this.submit} disabled={submitted}>
+          Submit
+        </button>
       </>
     );
   }
