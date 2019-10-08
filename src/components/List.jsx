@@ -25,7 +25,7 @@ const List = props => (
             onClick={e => props.remove(e, index)}
             className="remove-button"
           >
-            remove &#9747;
+            &#9747;
           </button>
         </li>
       </div>

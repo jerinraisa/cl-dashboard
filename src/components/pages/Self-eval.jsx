@@ -9,6 +9,7 @@ const ListContainer = styled.div`
   padding: 0 !important;
   width: 100%;
   height: 35vh;
+  margin-left: 0px;
 `;
 
 class SelfEval extends React.Component {

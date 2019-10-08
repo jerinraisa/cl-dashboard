@@ -28,7 +28,7 @@ const NavWrapper = styled.div`
   background: #97aef4;
   font-size: 1em;
   border-radius: 0px 36px 0px 0px;
-  // border: 1px solid red;
+  border: 1px solid red;
 `;
 
 const IconImage = styled.img`
@@ -40,7 +40,8 @@ const IconImage = styled.img`
 
 const NameText = styled.h3`
   font-size: 20px;
-  font-weight: 800;
+  font-weight: 700;
+  color: white;
   justify-content: center;
 `;
 
@@ -88,7 +89,7 @@ class Navigation extends React.Component {
     return (
       <>
         <TopWrapper>
-          <h4>{this.state.title}</h4>
+          <h3>{this.state.title}</h3>
           <h4>{d.toLocaleDateString("en-US", options)}</h4>
         </TopWrapper>
 

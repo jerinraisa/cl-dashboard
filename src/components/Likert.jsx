@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import "./Likert.css";
 // likert scale for self evaluation with for options
 

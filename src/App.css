@@ -1,7 +1,7 @@
 h1 {
   display: flex;
   justify-content: flex-start;
-  color: #314760;
+  color: #313660;
   /* align-items: flex-start; */
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
@@ -13,21 +13,21 @@ h1 {
 }
 
 h2 {
-  color: #314760;
+  color: #313660;
   padding-bottom: 2px;
 }
 
 h3 {
-  display: flex;
-  color: white;
+  color: #313660;
+  font-size: 1.7em;
 }
 
 p {
-  color: #314760;
+  color: #313660;
 }
 
 hr {
-  margin: 5px 10px;
+  margin: 5px 5px;
   border: 0.5px solid gray;
   border-radius: 1;
 }
