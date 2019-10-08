@@ -20,17 +20,16 @@ const NavWrapper = styled.div`
   display: flex;
   position: fixed;
   flex-direction: column;
-  height: 85vh;
-  width: 12em;
+  height: 84vh;
+  width: 200px;
   bottom: 0;
   justify-content: space-evenly;
-  padding-left: 4.5em;
+  padding-left: 3em;
   padding-top: 10px;
   padding-bottom: 40px;
   background: #97aef4;
   font-size: 1em;
   border-radius: 0px 36px 0px 0px;
-  // border: 1px solid red;
 `;
 
 const IconImage = styled.img`
