@@ -49,7 +49,7 @@ class SelfEval extends React.Component {
             <List placeholder={"Something I accomplished this week..."} />
           </ListContainer>
           <Row2>
-            <h2>Weekly Reflection</h2>
+            <h4>Weekly Reflection</h4>
           </Row2>
           <Row2>
             <Reflection></Reflection>

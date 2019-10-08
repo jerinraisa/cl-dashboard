@@ -91,11 +91,13 @@
   border-radius: 10px;
   border: 1px solid #778798;
   padding: 5px 1em;
+  outline: 0;
 }
 
 .submitButton:hover {
+  outline: 0;
   color: white !important;
-  background: #cb8589;
+  background: #97AEF4;
   transform: scale(1.1) translateY(-5px);
   transition: all 0.3s;
 }
