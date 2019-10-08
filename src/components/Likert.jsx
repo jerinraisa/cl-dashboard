@@ -1,6 +1,14 @@
 import React from "react";
 import "./Likert.css";
+import styled from "styled-components";
 // likert scale for self evaluation with for options
+
+
+const ButtonContainer = styled.div`
+  text-align: right;
+  width: 100%;
+  margin-top: 10px;
+  `;
 
 let submitted = false; // add a condition for when the week resets
 
@@ -79,9 +87,11 @@ class Reflection extends React.Component {
         <Option prompt={"I completed all of my assigned tasks."} />
         <Option prompt={"I collaborated with my coworkers."} />
         <Option prompt={"I improved on x skill."} />
-        <button type={"submit"} onClick={this.submit} disabled={submitted}>
-          Submit
-        </button>
+        <ButtonContainer>
+          <submitButton type={"submit"} onClick={this.submit} disabled={submitted}>
+            Submit
+          </submitButton>
+        </ButtonContainer>
       </>
     );
   }

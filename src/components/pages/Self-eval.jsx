@@ -29,12 +29,12 @@ class SelfEval extends React.Component {
             <List placeholder={"Something I learned this week..."} />
             <List placeholder={"Something I accomplished this week..."} />
           </ListContainer>
-          <Row2>
+          <Row>
             <h4>Weekly Reflection</h4>
-          </Row2>
-          <Row2>
+          </Row>
+          <Row>
             <Reflection></Reflection>
-          </Row2>
+          </Row>
         </MainContainer>
       </div>
     );

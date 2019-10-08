@@ -20,13 +20,14 @@ h2 {
 h3 {
   color: #313660;
   font-size: 1.7em;
+  padding-left: 38px;
 }
 
 h4 {
   color: #6F7E8F;
-  font-size: 1.3em;
+  font-size: 1.25em;
   font-weight: 400;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 p {
@@ -37,4 +38,15 @@ hr {
   margin: 5px 5px;
   border: 0.5px solid gray;
   border-radius: 1;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  background: white;
+  color: white;
+  text-decoration: none;
 }

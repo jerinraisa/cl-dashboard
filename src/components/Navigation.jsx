@@ -42,7 +42,8 @@ const NameText = styled.h3`
   font-size: 20px;
   font-weight: 700;
   color: white;
-  justify-content: center;
+  align-self: center;
+  padding: 0;
 `;
 
 const ProfileContainer = styled.div`
@@ -50,7 +51,6 @@ const ProfileContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   width: 100px;
-  // border: 1px solid red;
 `;
 
 const TopWrapper = styled.div`
@@ -131,7 +131,6 @@ class Navigation extends React.Component {
                 Resources
               </NavLink>
             </NavWrapper>
-            {/* <Title>{this.state.title}</Title> */}
             <PageContainer>
               <Switch>
                 {Pages.map(page => {
@@ -147,7 +146,6 @@ class Navigation extends React.Component {
             </PageContainer>
           </Router>
         </div>
-        {/* <List></List> */}
       </>
     );
   }
