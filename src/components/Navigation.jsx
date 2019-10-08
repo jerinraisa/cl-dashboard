@@ -28,7 +28,7 @@ const NavWrapper = styled.div`
   background: #97aef4;
   font-size: 1em;
   border-radius: 0px 36px 0px 0px;
-  border: 1px solid green;
+  // border: 1px solid red;
 `;
 
 const IconImage = styled.img`

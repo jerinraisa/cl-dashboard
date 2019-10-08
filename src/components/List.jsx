@@ -3,7 +3,7 @@ import styled from "styled-components";
 import "./List.css";
 
 const ListCard = styled.div`
-  margin: 5px;
+  margin: 20px;
   padding: 10px;
   width: 50%;
   height: auto;
@@ -25,7 +25,7 @@ const List = props => (
             onClick={e => props.remove(e, index)}
             className="remove-button"
           >
-            &#9747;
+            remove &#9747;
           </button>
         </li>
       </div>
