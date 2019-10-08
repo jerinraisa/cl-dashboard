@@ -22,9 +22,11 @@ const NavWrapper = styled.div`
   flex-direction: column;
   height: 85vh;
   width: 12em;
+  bottom: 0;
   justify-content: space-evenly;
   padding-left: 4.5em;
-  padding-top: 40px;
+  padding-top: 10px;
+  padding-bottom: 40px;
   background: #97aef4;
   font-size: 1em;
   border-radius: 0px 36px 0px 0px;
@@ -36,6 +38,7 @@ const IconImage = styled.img`
   align-content: center;
   width: 100px;
   height: 100px;
+  padding: 10px;
 `;
 
 const NameText = styled.h3`

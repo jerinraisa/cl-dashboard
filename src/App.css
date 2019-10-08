@@ -31,3 +31,9 @@ hr {
   border: 0.5px solid gray;
   border-radius: 1;
 }
+
+a {
+  color: white;
+  text-decoration-line: none;
+  font-weight: 700;
+}
