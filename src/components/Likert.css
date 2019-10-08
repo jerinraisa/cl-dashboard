@@ -84,3 +84,20 @@
   outline: 0;
 }
 
+.submitButton {
+  color: #778798;
+  font-size: 0.9em;
+  text-align: right;
+  border-radius: 10px;
+  border: 1px solid #778798;
+  padding: 5px 1em;
+}
+
+.submitButton:hover {
+  color: white !important;
+  background: #cb8589;
+  transform: scale(1.1) translateY(-5px);
+  transition: all 0.3s;
+}
+
+
