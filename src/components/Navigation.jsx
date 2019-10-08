@@ -10,7 +10,7 @@ const PageContainer = styled.div`
   margin-left: 20%;
   // margin-top: 11vh;
   width: 70%;
-  border: 1px solid red;
+  // border: 1px solid red;
   height: 88vh;
 `;
 
@@ -18,13 +18,14 @@ const Title = styled.div`
 display: flex;
 justify-content: flex-start;
 color: black;
-font-size: 2em;
+font-size: 1.9em;
 text-align: right;
 font-family: Arial, Helvetica, sans-serif;
 font-weight: 900;
 background: #fefefe;
-border: 1px solid red;
-margin-left: 10px;
+color: #314760;
+// border: 1px solid red;
+margin-left: 15px;
 align-self: center;
 `;
 
@@ -38,7 +39,7 @@ const TodayDate = styled.div`
   padding-right: 10px;
   padding-top: 10px;
   background: #fefefe;
-  border: 1px solid red;
+  // border: 1px solid red;
 `;
 
 const NavWrapper = styled.div`
@@ -55,7 +56,7 @@ const NavWrapper = styled.div`
   font-weight: 800;
   font-size: 1em;
   border-radius: 0px 36px 0px 0px;
-  border: 1px solid red;
+  // border: 1px solid red;
 `;
 
 const IconImage = styled.img`
@@ -63,14 +64,14 @@ const IconImage = styled.img`
   align-content: center;
   width: 100px;
   height: 100px;
-  border: 1px solid red;
+  // border: 1px solid red;
 `;
 
 const NameText = styled.h3`
   font-size: 20px;
   font-weight: 800;
   justify-content: center;
-  border: 1px solid red;
+  // border: 1px solid red;
 `;
 
 const ProfileContainer = styled.div`
@@ -78,7 +79,7 @@ const ProfileContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   width: 100px;
-  margin-left: 45px;
+  margin-left: 40px;
   // border: 1px solid red;
 `;
 
@@ -87,10 +88,10 @@ const LinksContainer = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
-  margin-left: 20px;
-  width: 200px;
+  margin-left: 48px;
+  width: 150px;
   height: 500px;
-  border: 1px solid red;
+  // border: 1px solid red;
 `;
 
 const TopWrapper = styled.div`
@@ -141,7 +142,7 @@ class Navigation extends React.Component {
     return (
       <>
         <TopWrapper>
-          <Title>Testing</Title>
+          <Title>Self Evaluation</Title>
           {/* <Title>{this.state.title}</Title> */}
           <TodayDate>{d.toLocaleDateString("en-US", options)}</TodayDate>
         </TopWrapper>

@@ -80,9 +80,9 @@ class Reflection extends React.Component {
         <Option prompt={"I completed all of my assigned tasks."} />
         <Option prompt={"I collaborated with my coworkers."} />
         <Option prompt={"I improved on x skill."} />
-        <button type={"submit"} onClick={this.submit} disabled={submitted}>
+        <buttonSubmit type={"submit"} onClick={this.submit} disabled={submitted}>
           Submit
-        </button>
+        </buttonSubmit>
       </>
     );
   }

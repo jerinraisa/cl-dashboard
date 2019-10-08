@@ -42,3 +42,11 @@ a:hover {
 a:active {
   background-color: white;
 }
+
+buttonSubmit {
+  color: #778798;
+  text-align: right;
+  border-radius: 10px;
+  border: 1px solid #778798;
+  padding: 5px 0.5em;
+}
