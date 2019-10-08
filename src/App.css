@@ -46,8 +46,10 @@ a {
 }
 
 a:hover {
-  background: white;
-  color: white;
+  background: #ffffff;
+  border-radius: 10px 0px 0px 10px;
+  height:40px;
+  color: #EF878D;
   text-decoration-line: none;
   font-weight: 700;
 }

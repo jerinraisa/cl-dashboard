@@ -40,6 +40,7 @@ input:focus {
 .remove-button:focus {
   outline: 0;
 }
+
 ul {
   color: #314760;
 }
