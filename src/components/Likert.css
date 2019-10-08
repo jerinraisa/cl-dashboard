@@ -82,3 +82,23 @@
 .selected:focus {
   outline: 0;
 }
+
+.submitButton {
+  color: #778798;
+  font-size: 0.9em;
+  text-align: right;
+  border-radius: 10px;
+  border: 1px solid #778798;
+  padding: 5px 1em;
+  outline: 0;
+}
+
+.submitButton:hover {
+  outline: 0;
+  color: white !important;
+  background: #97AEF4;
+  transform: scale(1.1) translateY(-5px);
+  transition: all 0.3s;
+}
+
+
