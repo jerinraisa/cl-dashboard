@@ -1,5 +1,5 @@
 import React from "react";
-import List from "../List.jsx";
+import List from "../Form.jsx";
 import Reflection from "../Likert.jsx";
 import styled from "styled-components";
 import { MainContainer, Row } from "../Sections.jsx";

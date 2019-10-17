@@ -13,20 +13,20 @@
 .likert-option:nth-child(1):enabled {
   /* margin-left: 0px !important; */
   color: #ba5f65;
-  border: 1px solid #ba5f65;
+  border-color: #ba5f65;
 }
 .likert-option:nth-child(2):enabled {
   color: #cb8589;
-  border: 1px solid #cb8589;
+  border-color: #cb8589;
 }
 .likert-option:nth-child(3):enabled {
   color: #97a470;
-  border: 1px solid #97a470;
+  border-color: #97a470;
 }
 
 .likert-option:nth-child(4):enabled {
   color: #849357;
-  border: 1px solid #849357;
+  border-color: #849357;
 }
 
 .likert-option:hover:nth-child(1):enabled {
@@ -55,7 +55,6 @@
   border-radius: 30px;
   transition: all 0.3s;
   margin: 5px;
-  transition: all 0.3s;
   background: transparent;
   padding: 5px 0.7em;
 }
@@ -84,23 +83,26 @@
   outline: 0;
 }
 
-submitButton {
+.submit-button:enabled {
   color: #97aef4;
-  font-weight: bold;
+
+  text-align: right;
+  border-color: #97aef4;
+}
+.submit-button {
+  color: gray;
+  font-weight: 500;
   font-size: 0.9em;
   text-align: right;
   border-radius: 10px;
-  border: 1.5px solid #97aef4;
+  border: 1px solid gray;
   padding: 5px 1em;
   outline: 0;
 }
 
-submitButton:hover {
+.submit-button:hover:enabled {
   outline: 0;
   color: white !important;
   background: #97aef4;
-  border: 1px solid white;
-  transform: scale(1.1) translateY(-5px);
   transition: all 0.3s;
 }
-
