@@ -1,8 +1,8 @@
-import Overview from "./Overview.jsx";
-import DailyTasks from "./Daily-tasks.jsx";
-import SelfEval from "./Self-eval.jsx";
-import Goals from "./Goals.jsx";
-import Resources from "./Resources.jsx";
+import Overview from "./pages/Overview.jsx";
+import DailyTasks from "./pages/DailyTasks.jsx";
+import SelfEval from "./pages/SelfEval.jsx";
+import Goals from "./pages/Goals.jsx";
+import Resources from "./pages/Resources.jsx";
 
 export const Pages = [
   {

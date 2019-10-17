@@ -5,9 +5,9 @@ import {
   NavLink,
   BrowserRouter as Router
 } from "react-router-dom";
-import { Pages } from "./pages/pages.js";
+import { Pages } from "./pages.js";
 import styled from "styled-components";
-import Logo from "../assets/logo2.png";
+import Logo from "../assets/avatar-sm.png";
 
 const PageContainer = styled.div`
   padding: 0px 10px;
@@ -69,6 +69,7 @@ var options = {
   month: "long",
   day: "numeric"
 };
+
 let d = new Date();
 
 class Navigation extends React.Component {
@@ -106,28 +107,35 @@ class Navigation extends React.Component {
               <NavLink
                 to={"/overview"}
                 title="Overview"
-                activeClassName=""
+                activeClassName="curr-page"
                 onClick={e => this.newPage(e, "Overview")}
               >
                 Overview
               </NavLink>
               <NavLink
                 to={"/daily-tasks"}
+                activeClassName="curr-page"
                 onClick={e => this.newPage(e, "Daily Tasks")}
               >
                 Daily Tasks
               </NavLink>
               <NavLink
                 to={"/self-evaluation"}
+                activeClassName="curr-page"
                 onClick={e => this.newPage(e, "Self Evaluation")}
               >
                 Self Evaluation
               </NavLink>
-              <NavLink to={"/goals"} onClick={e => this.newPage(e, "Goals")}>
+              <NavLink
+                to={"/goals"}
+                activeClassName="curr-page"
+                onClick={e => this.newPage(e, "Goals")}
+              >
                 Goals
               </NavLink>
               <NavLink
                 to={"/resources"}
+                activeClassName="curr-page"
                 onClick={e => this.newPage(e, "Resources")}
               >
                 Resources

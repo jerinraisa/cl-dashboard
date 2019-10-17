@@ -47,11 +47,19 @@ a {
   text-decoration: none;
   height: 30px;
   border-radius: 20px 0px 0px 20px;
+  transition: all 0.3s;
 }
 
 a:hover {
   background: #ffffff;
   color: #ef878d;
+  transition: all 0.3s;
+}
+
+.curr-page {
+  background: #ffffff;
+  color: #ef878d;
+  transition: all 0.3s;
 }
 
 ul {
