@@ -1,0 +1,50 @@
+.ListCard .header input {
+  padding: 5px 5px;
+  font-size: 14px;
+  color: #83909F;
+  border: transparent;
+  width: 85%;
+}
+
+.ListCard {
+  margin: 3vh 0;
+  padding: 10px;
+  width: 47%;
+  height: auto;
+  max-height: 100%;
+  border: 1px solid gray;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.ListCard .theList {
+  list-style: none;
+  padding-left: 0;
+  width: 50%;
+}
+
+.ListCard .theList li {
+  color: #314760;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+  list-style: none;
+
+  transition: background-color .2s ease-out;
+}
+
+.ListCard .theList li:hover {
+  background-color: pink;
+  cursor: pointer;
+}
+
+ul.theList {
+  padding: 0;
+}
+
+.submit {
+  border: 0;
+  font-size: 25px;
+  background: transparent;
+  text-align: center;
+}
