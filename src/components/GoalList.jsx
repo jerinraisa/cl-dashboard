@@ -13,10 +13,14 @@ class GoalList extends React.Component {
               id="goalInput"
               ref={a => (this._inputExlement = a)}
               placeholder="Add a goal"
+              className={"input-field"}
             ></input>
             <button type="submit">+</button>
           </form>
-          <GoalItems entries={this.props.items} delete={this.props.deleteItem} />
+          <GoalItems
+            entries={this.props.items}
+            deleteItem={this.props.deleteItem}
+          />
         </div>
         {/* <hr /> */}
       </div>

@@ -8,7 +8,6 @@ const DateContainer = styled.div`
   display: flex;
   margin-top: 0.5em;
   width: 30%;
-  // border: 1px solid gray;
 `;
 
 const TopContainer = styled.div`
@@ -17,12 +16,13 @@ const TopContainer = styled.div`
 `;
 
 const TrackerContainer = styled.div`
+  border: 1px solid gray;
   display: flex;
   justify-content: center;
   width: 50%;
   height: auto;
   border-radius: 10px;
-  `;
+`;
 
 const ListContainer = styled.div`
   display: flex;
@@ -34,14 +34,16 @@ const ListContainer = styled.div`
 `;
 
 const CompleteBox = styled.div`
-    margin: 3vh 0;
-    padding: 10px;
-    width: 35.5%;
-    height: 25vh;
-    max-height: 100%;
-    border: 1px solid gray;
-    border-radius: 10px;
-    overflow: auto;
+  color: #313660;
+  font-size: 1em;
+  margin: 3vh 0;
+  padding: 10px;
+  width: 35.5%;
+  height: 25vh;
+  max-height: 100%;
+  border: 1px solid gray;
+  border-radius: 10px;
+  overflow: auto;
 `;
 
 // Date settings
@@ -93,22 +95,17 @@ class Goals extends React.Component {
       return item.key === key;
     });
 
-    this.setState(({
-      ...this.state,
-      completedItems: [...deletedItems, this.state.completedItems]
-
-    }))
-
     var filteredItems = this.state.items.filter(function(item) {
       return item.key !== key;
     });
 
     this.setState({
       ...this.state,
-      items: filteredItems
+      items: filteredItems,
+      completedItems: [...deletedItems, ...this.state.completedItems]
     });
   }
-  
+
   render() {
     return (
       <div>
@@ -118,24 +115,30 @@ class Goals extends React.Component {
           </Row>
           <hr />
           <DateContainer>
-          <Row>
+            <Row>
               <h5>{d.toLocaleDateString("en-US", options)}</h5>
-          </Row>
+            </Row>
           </DateContainer>
           <TopContainer>
-          <ListContainer>
-            {/* <List placeholder={"Add a goal"} /> */}
-            <GoalList items={this.state.items} deleteItem={this.deleteItem} addItem={this.addItem}/>
-          </ListContainer>
-          <TrackerContainer>
-          <h5>Goal Tracker</h5>
-          </TrackerContainer>
+            <ListContainer>
+              {/* <List placeholder={"Add a goal"} /> */}
+              <GoalList
+                items={this.state.items}
+                deleteItem={this.deleteItem}
+                addItem={this.addItem}
+              />
+            </ListContainer>
+            <TrackerContainer>
+              <h5>Goal Tracker</h5>
+            </TrackerContainer>
           </TopContainer>
           <Row>
-              <h5>Completed Goals</h5>
+            <h5>Completed Goals</h5>
           </Row>
           <CompleteBox>
-            {this.state.completedItems && this.state.completedItems[0]}
+            {this.state.completedItems.map((value, i) => (
+              <p key={`${value.text}-${i}`}>{value.text}</p>
+            ))}
           </CompleteBox>
         </MainContainer>
       </div>
