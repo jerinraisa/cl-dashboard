@@ -62,7 +62,7 @@ class DailyTasks extends React.Component {
         </ListContainer>
         <ArchivesContainer>
           <h5>Archives</h5>
-          <Archive />
+          {/* <Archive /> */}
         </ArchivesContainer>
         <CompleteBox></CompleteBox>
       </MainContainer>
