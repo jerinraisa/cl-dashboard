@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "./Navigation.jsx";
+import Navigation from "./Navigation";
 
 class Board extends React.Component {
   render() {
