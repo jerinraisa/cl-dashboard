@@ -1,8 +1,8 @@
 import React from "react";
-import List from "../Form.jsx";
-import Reflection from "../Likert.jsx";
+import List from "../Form";
+import Reflection from "../Likert";
 import styled from "styled-components";
-import { MainContainer, Row } from "../Sections.jsx";
+import { MainContainer, Row } from "../Sections";
 
 const ListContainer = styled.div`
   display: flex;

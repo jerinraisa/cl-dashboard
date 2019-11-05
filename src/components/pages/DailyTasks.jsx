@@ -1,6 +1,6 @@
 import React from "react";
-import { MainContainer, Row } from "../Sections.jsx";
-import List from "../Form.jsx";
+import { MainContainer, Row } from "../Sections";
+import List from "../Form";
 
 class DailyTasks extends React.Component {
   render() {
