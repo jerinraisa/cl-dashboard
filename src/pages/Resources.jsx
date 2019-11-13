@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const WidgetContainer = styled.div`
   display: flex;
-  // border: 1px solid gray;
   margin-left: 30px;
 `;
 
@@ -13,7 +12,7 @@ const Col1Container = styled.div`
   height: 80vh;
   width: 60%;
   margin-right: 1.5em;
-  // border: 1px solid gray;
+  // border: 1px solid #99a3ad;
 `;
 
 const Col2Container = styled.div`
@@ -21,7 +20,7 @@ const Col2Container = styled.div`
   flex-direction: column;
   height: 50vh;
   width: 40%;
-  // border: 1px solid gray;
+  // border: 1px solid #99a3ad;
 `;
 
 const GoogleReminders = styled.div`
@@ -32,7 +31,7 @@ const GoogleReminders = styled.div`
   height: 20vh;
   margin-bottom: 2.5em;
   max-height: 100%;
-  border: 1px solid #99a3ad;
+  // border: 1px solid #99a3ad;
   border-radius: 10px;
   overflow: auto;
 `;
@@ -43,7 +42,7 @@ const JiraReminders = styled.div`
   width: 85%;
   height: 34vh;
   max-height: 100%;
-  border: 1px solid #99a3ad;
+  // border: 1px solid #99a3ad;
   border-radius: 10px;
   overflow: auto;
 `;
@@ -53,7 +52,7 @@ const MavenLinkHours = styled.div`
   font-size: 1em;
   padding: 10px;
   margin-bottom: 2em;
-  width: 80%;
+  width: 85%;
   height: 45vh;
   max-height: 100%;
   border: 1px solid #99a3ad;
@@ -62,15 +61,22 @@ const MavenLinkHours = styled.div`
 `;
 
 const QuickLinks = styled.div`
+  display: flex;
+  justify-content: space-between;
   color: #313660;
   font-size: 1em;
-  padding: 10px;
-  width: 80%;
+  padding-bottom: 20px;
+  width: 90%;
   height: 10vh;
-  max-height: 100%;
-  border: 1px solid #99a3ad;
-  border-radius: 10px;
   overflow: auto;
+`;
+
+const Links = styled.div`
+  display: flex;
+  padding: 0px !important;
+  background-color: #e3e7ea;
+  width: 90px;
+  height: 90px;
 `;
 
 class Resources extends React.Component {
@@ -96,7 +102,17 @@ class Resources extends React.Component {
             </div>
             <div>
               <h2>Quick Links</h2>
-              <QuickLinks></QuickLinks>
+              <QuickLinks>
+                <a href="https://google.com">
+                  <Links />
+                </a>
+                <a href="https://google.com">
+                  <Links />
+                </a>
+                <a href="https://google.com">
+                  <Links />
+                </a>
+              </QuickLinks>
             </div>
           </Col2Container>
         </WidgetContainer>

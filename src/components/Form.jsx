@@ -9,7 +9,7 @@ const ListCard = styled.div`
   width: 47%;
   height: auto;
   max-height: 100%;
-  border: 1px solid gray;
+  border: 1px solid #99a3ad;
   border-radius: 10px;
   overflow: auto;
 `;

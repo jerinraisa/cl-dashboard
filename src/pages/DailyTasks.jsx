@@ -1,8 +1,9 @@
 import React from "react";
-import { MainContainer, Row } from "../Sections.jsx";
-import List from "../Form.jsx";
+import { MainContainer, Row } from "../components/Sections.jsx";
+import List from "../components/Form.jsx";
 import styled from "styled-components";
-import Archive from "../Archive.jsx";
+// import Archive from "../Archive.jsx";
+import ArchiveImg from "../assets/archive.png";
 
 let d = new Date();
 
@@ -21,7 +22,7 @@ const CompleteBox = styled.div`
   width: 47%;
   height: 25vh;
   max-height: 100%;
-  border: 1px solid gray;
+  border: 1px solid #99a3ad;
   border-radius: 10px;
   overflow: auto;
 `;
@@ -32,8 +33,16 @@ const DateContainer = styled.div`
 
 const ArchivesContainer = styled.div`
   display: flex;
-  width: 48.5%
-  border: 1px solid gray;
+  width: 48.5%;
+  // border: 1px solid #99a3ad;
+`;
+
+const ArcImg = styled.img`
+  display: flex;
+  padding-left: 20px;
+  padding-top: 10px;
+  width: 20px;
+  height: 20px;
 `;
 
 // Date settings
@@ -62,6 +71,7 @@ class DailyTasks extends React.Component {
         </ListContainer>
         <ArchivesContainer>
           <h5>Archives</h5>
+          <ArcImg src={ArchiveImg} />
           {/* <Archive /> */}
         </ArchivesContainer>
         <CompleteBox></CompleteBox>

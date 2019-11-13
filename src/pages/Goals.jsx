@@ -1,8 +1,8 @@
 import React from "react";
-import { MainContainer, Row } from "../Sections";
+import { MainContainer, Row } from "../components/Sections";
 import styled from "styled-components";
-import List from "../Form.jsx";
-import GoalList from "../GoalList";
+// import List from "../Form.jsx";
+import GoalList from "../components/GoalList";
 
 const DateContainer = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const TopContainer = styled.div`
 `;
 
 const TrackerContainer = styled.div`
-  border: 1px solid gray;
+  border: 1px solid #99a3ad;
   display: flex;
   justify-content: center;
   width: 50%;
@@ -41,7 +41,7 @@ const CompleteBox = styled.div`
   width: 35.5%;
   height: 25vh;
   max-height: 100%;
-  border: 1px solid gray;
+  border: 1px solid #99a3ad;
   border-radius: 10px;
   overflow: auto;
 `;

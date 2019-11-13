@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import GoalItems from "./GoalItems.jsx";
 import "./GoalsList.css";
 

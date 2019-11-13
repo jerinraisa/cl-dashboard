@@ -1,7 +1,7 @@
 .ListCard .header input {
   padding: 5px 5px;
   font-size: 14px;
-  color: #83909F;
+  color: #83909f;
   border: transparent;
   width: 85%;
 }
@@ -12,7 +12,7 @@
   width: 47%;
   height: auto;
   max-height: 100%;
-  border: 1px solid gray;
+  border: 1px solid #99a3ad;
   border-radius: 10px;
   overflow: auto;
 }
@@ -30,7 +30,7 @@
   border-radius: 5px;
   list-style: none;
 
-  transition: background-color .2s ease-out;
+  transition: background-color 0.2s ease-out;
 }
 
 .ListCard .theList li:hover {
@@ -56,6 +56,7 @@ ul.theList {
   padding: 5px 5px;
   background: transparent;
 }
+
 .input-field:focus {
   outline: 0;
 }
