@@ -1,4 +1,12 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
+const express = require("express");
+
+const app = express();
+const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 5000;
+app.use(bodyParser.json());
+
+// const listRoutes = express.Router();
 mongoose.connect("mongodb://127.0.0.1:27018/", {
   user: "cl-dashboard",
   pass: "cl-dashboard",
@@ -6,46 +14,46 @@ mongoose.connect("mongodb://127.0.0.1:27018/", {
   dbName: "cl-dashboard"
 });
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function() {
-  // we're connected!
+db.once("open", () => {
+  console.log("Connected successfully ");
 });
 
-var list = new mongoose.Schema({
-  user: String,
-  items: [
-    {
-      task: String,
-      date: Date,
-      complete: Boolean
-    }
-  ]
+var task = new mongoose.Schema({
+  task: String,
+  date: Date,
+  complete: Boolean
 });
 
-var ToDo = mongoose.model("To Do", list);
-var testList = new ToDo({
-  user: "Lynn",
-  items: [
-    {
-      task: "Learn Mongo",
-      date: Date,
-      complete: Boolean
-    }
-  ]
-});
-testList.save();
+var Task = mongoose.model("Daily Tasks", task);
 
-ToDo.findOne({ user: "Lynn" }).then(thing => {
-  if (!thing) {
-    return new Error("Lynn not found");
-  }
+// handleUpdate(){
+//   list = list.create().then(newList => return newList)
+// }
 
-  console.log(thing.items);
-  return thing;
+app.post("/daily-tasks/add-items", req => {
+  var newTask = new Task(req.body);
+  console.log(req.body);
+  newTask.save();
+  // list = List.find()
+  // var items = list.items.map(item => {
+  //   if(item.id == req.id) {
+  //     item.completed = true;
+  //   }
+  // });
+  // list.update({items})
 });
 
-// /backend/data.js
+app.get("/daily-tasks/get-items", (req, res) => {
+  res.send(Task);
+});
+
+app.post("/daily-tasks/remove-items", (req, res) => {
+  console.log("remove item :D");
+});
+
+app.listen(PORT, () => console.log("Listening on port", PORT));
 
 // // export the new Schema so we could modify it using Node.js
 // module.exports = mongoose.model("Data", DataSchema);

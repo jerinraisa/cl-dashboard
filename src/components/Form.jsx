@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import "./List.css";
 import List from "./List";
+import axios from "axios";
 
 const ListCard = styled.div`
   margin: 3vh 0;
@@ -18,9 +19,8 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // initialize array of items
+      name: this.props.name,
       items: [],
-      // text field value
       value: ""
     };
   }
@@ -42,7 +42,25 @@ class Form extends React.Component {
       items: [...this.state.items, this.state.value],
       value: ""
     });
+
+    this.appendItem();
   };
+
+  appendItem() {
+    const path = "/" + this.state.name + "/add-items";
+    axios
+      .post(path, {
+        item: this.state.value,
+        date: Date(),
+        complete: false
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
 
   // handle enter key press
   onKeyPress = e => {
@@ -61,7 +79,14 @@ class Form extends React.Component {
     this.setState({
       items: items
     });
+    this.removeRequest();
   };
+
+  removeRequest() {
+    const path = "/" + this.state.name + "/remove-items";
+    axios.post(path);
+    alert();
+  }
 
   render() {
     return (
