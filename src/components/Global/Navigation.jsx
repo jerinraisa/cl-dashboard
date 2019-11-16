@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { Pages } from "./pages.js";
 import styled from "styled-components";
-import Logo from "../assets/avatar-sm.png";
+import Logo from "../../assets/383x383.png";
 
 const PageContainer = styled.div`
   padding: 0px 10px;
@@ -20,7 +20,7 @@ const NavWrapper = styled.div`
   display: flex;
   position: fixed;
   flex-direction: column;
-  height: 84vh;
+  height: 95vh;
   width: 200px;
   bottom: 0;
   justify-content: space-evenly;
@@ -29,7 +29,6 @@ const NavWrapper = styled.div`
   padding-bottom: 40px;
   background: #97aef4;
   font-size: 1em;
-  border-radius: 0px 36px 0px 0px;
 `;
 
 const IconImage = styled.img`
@@ -104,42 +103,18 @@ class Navigation extends React.Component {
                 <NameText>Name</NameText>
               </ProfileContainer>
               {/* Nav side bar  */}
-              <NavLink
-                to={"/overview"}
-                title="Overview"
-                activeClassName="curr-page"
-                onClick={e => this.newPage(e, "Overview")}
-              >
-                Overview
-              </NavLink>
-              <NavLink
-                to={"/daily-tasks"}
-                activeClassName="curr-page"
-                onClick={e => this.newPage(e, "Daily Tasks")}
-              >
-                Daily Tasks
-              </NavLink>
-              <NavLink
-                to={"/self-evaluation"}
-                activeClassName="curr-page"
-                onClick={e => this.newPage(e, "Self Evaluation")}
-              >
-                Self Evaluation
-              </NavLink>
-              <NavLink
-                to={"/goals"}
-                activeClassName="curr-page"
-                onClick={e => this.newPage(e, "Goals")}
-              >
-                Goals
-              </NavLink>
-              <NavLink
-                to={"/resources"}
-                activeClassName="curr-page"
-                onClick={e => this.newPage(e, "Resources")}
-              >
-                Resources
-              </NavLink>
+              {Pages.map(page => {
+                return (
+                  <NavLink
+                    to={page.path}
+                    title={page.name}
+                    activeClassName="curr-page"
+                    onClick={e => this.newPage(e, page.name)}
+                  >
+                    {page.name}
+                  </NavLink>
+                );
+              })}
             </NavWrapper>
             <PageContainer>
               <Switch>

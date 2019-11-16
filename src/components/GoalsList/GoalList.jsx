@@ -1,6 +1,6 @@
 import React from "react";
 import GoalItems from "./GoalItems.jsx";
-import "./GoalsList.css";
+import "./index.css";
 
 class GoalList extends React.Component {
   render() {
@@ -18,7 +18,8 @@ class GoalList extends React.Component {
           </form>
           <GoalItems
             entries={this.props.items}
-            deleteItem={this.props.deleteItem}
+            deleteGoal={this.props.deleteGoal}
+            completeGoal={this.props.completeGoal}
           />
         </div>
         {/* <hr /> */}

@@ -1,8 +1,7 @@
 import React from "react";
-import { MainContainer, Row } from "../components/Sections";
+import { MainContainer, Row } from "../components/Global/Sections";
 import styled from "styled-components";
-// import List from "../Form.jsx";
-import GoalList from "../components/GoalList";
+import GoalList from "../components/GoalsList/GoalList.jsx";
 
 const DateContainer = styled.div`
   display: flex;
@@ -63,12 +62,9 @@ class Goals extends React.Component {
       items: [],
       completedItems: []
     };
-
-    this.addItem = this.addItem.bind(this);
-    this.deleteItem = this.deleteItem.bind(this);
   }
 
-  addItem(e) {
+  addItem = e => {
     e.preventDefault();
     const element = document.getElementById("goalInput");
 
@@ -88,23 +84,30 @@ class Goals extends React.Component {
     }
 
     console.log(this.state.items);
-  }
+  };
 
-  deleteItem(key) {
-    var deletedItems = this.state.items.filter(function(item) {
-      return item.key === key;
-    });
-
+  completeGoal = goal => {
     var filteredItems = this.state.items.filter(function(item) {
-      return item.key !== key;
+      return item.key !== goal.key;
     });
 
     this.setState({
       ...this.state,
       items: filteredItems,
-      completedItems: [...deletedItems, ...this.state.completedItems]
+      completedItems: [...this.state.completedItems, goal]
     });
-  }
+  };
+
+  deleteGoal = goal => {
+    var filteredItems = this.state.items.filter(function(item) {
+      return item.key !== goal.key;
+    });
+
+    this.setState({
+      ...this.state,
+      items: filteredItems
+    });
+  };
 
   render() {
     return (
@@ -124,7 +127,8 @@ class Goals extends React.Component {
               {/* <List placeholder={"Add a goal"} /> */}
               <GoalList
                 items={this.state.items}
-                deleteItem={this.deleteItem}
+                completeGoal={this.completeGoal}
+                deleteGoal={this.deleteGoal}
                 addItem={this.addItem}
               />
             </ListContainer>

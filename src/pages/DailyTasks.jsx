@@ -1,9 +1,9 @@
 import React from "react";
-import { MainContainer, Row } from "../components/Sections.jsx";
-import List from "../components/Form.jsx";
+import { MainContainer, Row } from "../components/Global/Sections.jsx";
+import List from "../components/TaskList/Form.jsx";
 import styled from "styled-components";
 // import Archive from "../Archive.jsx";
-import ArchiveImg from "../assets/archive.png";
+import ArchiveImg from "../assets/40x43.png";
 
 let d = new Date();
 
