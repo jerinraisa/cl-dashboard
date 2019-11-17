@@ -14,6 +14,7 @@ mongoose.connect("mongodb://127.0.0.1:27018/", {
   useNewUrlParser: true,
   dbName: "cl-dashboard"
 });
+mongoose.set("useFindAndModify", false);
 
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", () => {
@@ -26,7 +27,6 @@ var Task = require("./models/task");
 
 app.get("/daily-tasks/get-items", (req, res) => {
   Task.find({ complete: false }, (err, tasks) => {
-    console.log(tasks);
     res.json(tasks);
   });
 });
@@ -53,25 +53,39 @@ app.post("/daily-tasks/add-items", req => {
   newTask.save();
 });
 
-app.post("/daily-tasks/remove-items", (req, res) => {
-  console.log(req.body.name);
-  // find the item to be removed within daily tasks
-
-  // prev.map(thing => {
-  //   if (thing.item !== req.body.name) {
-  //     console.log(thing.item);
-  //   }
-
-  // update the list in mongo with tempList
-  // });
-  // remap all of the items without including the one to be removed
-  // list = List.find()
-  // var items = list.items.map(item => {
-  //   if(item.id == req.id) {
-  //     item.completed = true;
-  //   }
-  // });
-  // list.update({items})
+app.delete("/daily-tasks/remove-items", (req, res) => {
+  console.log("delete request");
+  console.log(req.body._id);
+  return Task.deleteOne({ _id: req.body.id })
+    .exec()
+    .then(deleted =>
+      res.json({
+        message: "Task deleted successfully"
+      })
+    )
+    .catch(error =>
+      res.status(500).json({
+        message: "Error deleting Task"
+      })
+    );
 });
+
+// find the item to be removed within daily tasks
+
+// prev.map(thing => {
+//   if (thing.item !== req.body.name) {
+//     console.log(thing.item);
+//   }
+
+// update the list in mongo with tempList
+// });
+// remap all of the items without including the one to be removed
+// list = List.find()
+// var items = list.items.map(item => {
+//   if(item.id == req.id) {
+//     item.completed = true;
+//   }
+// });
+// list.update({items})
 
 app.listen(PORT, () => console.log("Listening on port", PORT));
