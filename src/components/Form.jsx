@@ -20,7 +20,7 @@ class Form extends React.Component {
     super(props);
     this.state = {
       name: this.props.name,
-      items: [],
+      items: [{}],
       value: ""
     };
   }
@@ -30,20 +30,19 @@ class Form extends React.Component {
     this.setState({ value: e.target.value });
   };
 
-  // append item on click
   handleSubmit = e => {
     // check if the task is empty
     if (!this.state.value.replace(/\s/g, "").length) {
       alert("Cannot add empty task.");
       return;
     }
-    // add an item to the list
     this.setState({
-      items: [...this.state.items, this.state.value],
+      // items: [...this.state.items, this.state.value],
       value: ""
     });
 
     this.appendItem();
+    this.listUpdate();
   };
 
   appendItem() {
@@ -62,6 +61,13 @@ class Form extends React.Component {
       });
   }
 
+  listUpdate = () => {
+    const path = "/daily-tasks/get-items";
+    axios.get(path).then(res => {
+      this.setState({ items: res.data });
+    });
+  };
+
   // handle enter key press
   onKeyPress = e => {
     if (e.key === "Enter") {
@@ -70,22 +76,31 @@ class Form extends React.Component {
   };
 
   // remove items from list
-  remove = (e, id) => {
+  remove = (e, index) => {
     const { items } = this.state;
-    var index = id;
+    var toRemove = items[index]; // item to be removed
+    alert("Remove " + toRemove + "?");
     if (index !== -1) {
       items.splice(index, 1);
     }
     this.setState({
       items: items
     });
-    this.removeRequest();
+    this.removeRequest(toRemove);
   };
 
-  removeRequest() {
+  removeRequest(toRemove) {
     const path = "/" + this.state.name + "/remove-items";
-    axios.post(path);
-    alert();
+    axios
+      .post(path, {
+        name: toRemove
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -108,7 +123,21 @@ class Form extends React.Component {
           className="add-button"
         />
         <hr />
-        <List remove={this.remove} items={this.state.items} />
+        <ul>
+          {this.state.items.map((item, index) => (
+            <div key={item._id}>
+              <li>
+                {item.item}{" "}
+                <button
+                  onClick={e => this.remove(e, item)}
+                  className="remove-button"
+                >
+                  remove &#9747;
+                </button>
+              </li>
+            </div>
+          ))}
+        </ul>
       </ListCard>
     );
   }

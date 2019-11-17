@@ -25,14 +25,10 @@ var Task = require("./models/task");
 // var Accomplish = mongoose.model("Accomplishments", taskSchema);
 
 app.get("/daily-tasks/get-items", (req, res) => {
-  db.collection("daily tasks").find({}, (err, tasks) => {
-    var tasksMap = {};
-    tasks.forEach(element => {
-      tasksMap[element._id] = element;
-    });
+  Task.find({ complete: false }, (err, tasks) => {
+    console.log(tasks);
+    res.json(tasks);
   });
-
-  // res.send(idk);
 });
 
 // handleUpdate(){
@@ -60,12 +56,12 @@ app.post("/daily-tasks/add-items", req => {
 app.post("/daily-tasks/remove-items", (req, res) => {
   console.log(req.body.name);
   // find the item to be removed within daily tasks
-  var prevList = db.collection("daily tasks").find({});
-  // console.log(prevList);
-  // prevList.map(thing => {
+
+  // prev.map(thing => {
   //   if (thing.item !== req.body.name) {
   //     console.log(thing.item);
   //   }
+
   // update the list in mongo with tempList
   // });
   // remap all of the items without including the one to be removed
@@ -79,6 +75,3 @@ app.post("/daily-tasks/remove-items", (req, res) => {
 });
 
 app.listen(PORT, () => console.log("Listening on port", PORT));
-
-// // export the new Schema so we could modify it using Node.js
-// module.exports = mongoose.model("Data", DataSchema);

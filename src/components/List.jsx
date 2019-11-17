@@ -7,10 +7,6 @@ class List extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    axios.get("/daily-tasks/get-items");
-    // res.
-  }
   render() {
     return (
       <ul>
