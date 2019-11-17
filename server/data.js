@@ -54,9 +54,8 @@ app.post("/daily-tasks/add-items", req => {
 });
 
 app.delete("/daily-tasks/remove-items", (req, res) => {
-  console.log("delete request");
-  console.log(req.body._id);
-  return Task.deleteOne({ _id: req.body.id })
+  console.log(req.body);
+  return Task.deleteOne({ _id: req.body._id })
     .exec()
     .then(deleted =>
       res.json({

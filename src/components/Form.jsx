@@ -80,10 +80,9 @@ class Form extends React.Component {
 
   // remove items from list
   remove = (e, toRemove) => {
-    alert(toRemove._id);
     const path = "/" + this.state.name + "/remove-items";
     axios
-      .delete(path, toRemove)
+      .delete(path, { data: toRemove })
       .then(res => {
         this.listUpdate();
         console.log(res);
