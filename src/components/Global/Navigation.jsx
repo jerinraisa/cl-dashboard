@@ -5,7 +5,7 @@ import {
   NavLink,
   BrowserRouter as Router
 } from "react-router-dom";
-import { Pages } from "./pages.js";
+import { Pages } from "./pages";
 import styled from "styled-components";
 import Logo from "../../assets/383x383.png";
 
