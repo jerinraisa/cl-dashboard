@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import "./index.css";
-import List from "./List";
+import "./List.css";
+import axios from "axios";
 
 const ListCard = styled.div`
   margin: 3vh 0;
@@ -18,11 +18,14 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // initialize array of items
-      items: [],
-      // text field value
+      name: this.props.name,
+      items: [{}],
       value: ""
     };
+  }
+
+  componentDidMount() {
+    this.listUpdate();
   }
 
   // set value to input
@@ -30,17 +33,42 @@ class Form extends React.Component {
     this.setState({ value: e.target.value });
   };
 
-  // append item on click
   handleSubmit = e => {
     // check if the task is empty
     if (!this.state.value.replace(/\s/g, "").length) {
       alert("Cannot add empty task.");
       return;
     }
-    // add an item to the list
     this.setState({
-      items: [...this.state.items, this.state.value],
+      // items: [...this.state.items, this.state.value],
       value: ""
+    });
+
+    this.appendItem();
+    this.listUpdate();
+  };
+
+  appendItem() {
+    const path = "/" + this.state.name + "/add-items";
+    axios
+      .post(path, {
+        item: this.state.value,
+        list: this.props.name,
+        date: Date(),
+        complete: false
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  listUpdate = () => {
+    const path = "/daily-tasks/get-items";
+    axios.get(path).then(res => {
+      this.setState({ items: res.data });
     });
   };
 
@@ -52,16 +80,20 @@ class Form extends React.Component {
   };
 
   // remove items from list
-  remove = (e, id) => {
-    const { items } = this.state;
-    var index = id;
-    if (index !== -1) {
-      items.splice(index, 1);
-    }
-    this.setState({
-      items: items
-    });
+  remove = (e, toRemove) => {
+    const path = "/" + this.state.name + "/remove-items";
+    axios
+      .delete(path, { data: toRemove })
+      .then(res => {
+        this.listUpdate();
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
+
+  removeRequest(toRemove) {}
 
   render() {
     return (
@@ -83,7 +115,22 @@ class Form extends React.Component {
           className="add-button"
         />
         <hr />
-        <List remove={this.remove} items={this.state.items} />
+
+        <ul>
+          {this.state.items.map((item, index) => (
+            <div key={item._id}>
+              <li>
+                {item.item}{" "}
+                <button
+                  onClick={e => this.remove(e, item)}
+                  className="remove-button"
+                >
+                  remove &#9747;
+                </button>
+              </li>
+            </div>
+          ))}
+        </ul>
       </ListCard>
     );
   }

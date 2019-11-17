@@ -27,8 +27,14 @@ class SelfEval extends React.Component {
           </Row>
           <hr />
           <ListContainer>
-            <List placeholder={"Something I learned this week..."} />
-            <List placeholder={"Something I accomplished this week..."} />
+            <Form
+              placeholder={"Something I learned this week..."}
+              name="list-learn"
+            />
+            <Form
+              placeholder={"Something I accomplished this week..."}
+              name="accomplishments"
+            />
           </ListContainer>
           <Row>
             <h5>Weekly Reflection</h5>
