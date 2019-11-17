@@ -24,6 +24,10 @@ class Form extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.listUpdate();
+  }
+
   // set value to input
   handleChange = e => {
     this.setState({ value: e.target.value });
@@ -75,32 +79,21 @@ class Form extends React.Component {
   };
 
   // remove items from list
-  remove = (e, index) => {
-    const { items } = this.state;
-    var toRemove = items[index]; // item to be removed
-    alert("Remove " + toRemove + "?");
-    if (index !== -1) {
-      items.splice(index, 1);
-    }
-    this.setState({
-      items: items
-    });
-    this.removeRequest(toRemove);
-  };
-
-  removeRequest(toRemove) {
+  remove = (e, toRemove) => {
+    alert(toRemove._id);
     const path = "/" + this.state.name + "/remove-items";
     axios
-      .post(path, {
-        name: toRemove
-      })
+      .delete(path, toRemove)
       .then(res => {
+        this.listUpdate();
         console.log(res);
       })
       .catch(err => {
         console.log(err);
       });
-  }
+  };
+
+  removeRequest(toRemove) {}
 
   render() {
     return (
@@ -122,6 +115,7 @@ class Form extends React.Component {
           className="add-button"
         />
         <hr />
+
         <ul>
           {this.state.items.map((item, index) => (
             <div key={item._id}>
