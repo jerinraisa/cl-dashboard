@@ -53,6 +53,7 @@ class Form extends React.Component {
     axios
       .post(path, {
         item: this.state.value,
+        list: this.props.name,
         date: Date(),
         complete: false
       })

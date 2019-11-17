@@ -1,5 +1,5 @@
 import React from "react";
-import List from "../Form";
+import Form from "../Form";
 import Reflection from "../Likert";
 import styled from "styled-components";
 import { MainContainer, Row } from "../Sections";
@@ -27,8 +27,14 @@ class SelfEval extends React.Component {
           </Row>
           <hr />
           <ListContainer>
-            <List placeholder={"Something I learned this week..."} />
-            <List placeholder={"Something I accomplished this week..."} />
+            <Form
+              placeholder={"Something I learned this week..."}
+              name="list-learn"
+            />
+            <Form
+              placeholder={"Something I accomplished this week..."}
+              name="accomplishments"
+            />
           </ListContainer>
           <Row>
             <h4>Weekly Reflection</h4>
