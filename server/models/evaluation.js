@@ -2,9 +2,10 @@ const mongoose = require("mongoose");
 
 const evalSchema = new mongoose.Schema({
   week: String,
-  results: [{ prompt: String, score: Number }]
+  prompt: String,
+  score: Number
 });
 
-var Eval = mongoose.model("Daily Tasks", evalSchema);
+var Eval = mongoose.model("Evaluation", evalSchema);
 
 module.exports = Eval;

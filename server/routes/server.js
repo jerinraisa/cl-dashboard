@@ -11,6 +11,7 @@ const getTasks = require("../controllers/getItems").DT;
 const getLearn = require("../controllers/getItems").LL;
 const removeDT = require("../controllers/removeItem").removeTask;
 const removeLL = require("../controllers/removeItem").removeLearn;
+const addScore = require("../controllers/likert");
 
 app.use(bodyParser.json());
 
@@ -26,9 +27,6 @@ db.once("open", () => {
   console.log("Connected successfully ");
 });
 
-// var Learn = mongoose.model("Things I learnt", taskSchema);
-// var Accomplish = mongoose.model("Accomplishments", taskSchema);
-
 app.get("/daily-tasks/get-items", getTasks);
 app.get("/list-learn/get-items", getLearn);
 
@@ -37,5 +35,7 @@ app.post("/list-learn/add-items", addLearn);
 
 app.delete("/daily-tasks/remove-items", removeDT);
 app.delete("/list-learn/remove-items", removeLL);
+
+app.post("/submit-evaluation", addScore);
 
 app.listen(PORT, () => console.log("Listening on port", PORT));

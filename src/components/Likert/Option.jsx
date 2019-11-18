@@ -22,11 +22,17 @@ class Option extends React.Component {
       value: key,
       active: key
     });
+    this.saveData(key);
   };
 
-  saveData = () => {
-    // axios.post()
-  };
+  saveData(score) {
+    alert(this.props.prompt);
+    axios.post("/submit-evaluation", {
+      week: "test week",
+      prompt: this.props.prompt,
+      score: score
+    });
+  }
 
   render() {
     return (
