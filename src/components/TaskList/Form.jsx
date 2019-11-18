@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import "./List.css";
 import axios from "axios";
+import "./index.css";
 
 const ListCard = styled.div`
   margin: 3vh 0;
@@ -53,7 +53,7 @@ class Form extends React.Component {
     axios
       .post(path, {
         item: this.state.value,
-        list: this.props.name,
+        // list: this.props.name,
         date: Date(),
         complete: false
       })
@@ -66,11 +66,12 @@ class Form extends React.Component {
   }
 
   listUpdate = () => {
-    const path = "/daily-tasks/get-items";
+    const path = "/" + this.state.name + "/get-items";
     axios.get(path).then(res => {
       this.setState({ items: res.data });
     });
   };
+  s;
 
   // handle enter key press
   onKeyPress = e => {

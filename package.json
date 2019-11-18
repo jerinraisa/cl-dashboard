@@ -11,6 +11,8 @@
     "morgan": "^1.9.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-dropdown-date": "0.0.18",
+    "react-dropdowns-datepicker": "^1.0.3",
     "react-router": "^5.1.0",
     "react-router-dom": "^5.1.0",
     "react-scripts": "3.1.2",

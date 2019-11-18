@@ -25,6 +25,7 @@ var Task = require("./models/task");
 // var Accomplish = mongoose.model("Accomplishments", taskSchema);
 
 app.get("/daily-tasks/get-items", (req, res) => {
+  console.log("get");
   Task.find({ complete: false }, (err, tasks) => {
     res.json(tasks);
   });
