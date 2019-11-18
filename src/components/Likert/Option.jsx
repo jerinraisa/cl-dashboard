@@ -1,6 +1,7 @@
 import React from "react";
 import Options from "./Options";
 import "./index.css";
+import axios from "axios";
 
 let submitted = false; // add a condition for when the week resets
 
@@ -10,7 +11,6 @@ class Option extends React.Component {
     this.state = {
       locked: false,
       active: "",
-      // options: ["strongly disagree", "disagree", "agree", "strongly agree"],
       value: 0
       // map week number and submitted (t/f) to ensure one submit / week
     };
@@ -22,6 +22,10 @@ class Option extends React.Component {
       value: key,
       active: key
     });
+  };
+
+  saveData = () => {
+    // axios.post()
   };
 
   render() {
