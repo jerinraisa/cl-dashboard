@@ -50,6 +50,7 @@ class Form extends React.Component {
 
   appendItem() {
     const path = "/" + this.state.name + "/add-items";
+
     axios
       .post(path, {
         item: this.state.value,
@@ -71,7 +72,6 @@ class Form extends React.Component {
       this.setState({ items: res.data });
     });
   };
-  s;
 
   // handle enter key press
   onKeyPress = e => {
@@ -116,7 +116,6 @@ class Form extends React.Component {
           className="add-button"
         />
         <hr />
-
         <ul>
           {this.state.items.map((item, index) => (
             <div key={item._id}>
