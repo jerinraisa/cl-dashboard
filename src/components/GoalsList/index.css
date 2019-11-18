@@ -25,7 +25,7 @@
 .ListCard .theList {
   list-style: none;
   padding-left: 0;
-  width: 50%;
+  width: 100%;
 }
 
 .ListCard .theList li {
@@ -83,4 +83,50 @@ input:focus {
 
 .remove-button:focus {
   outline: 0;
+}
+
+.checkbox {
+  display: inline-flex;
+  cursor: pointer;
+  position: relative;
+  padding: 0px 7px !important;
+}
+
+.checkbox > span {
+  color: #34495e;
+  padding: 0.5rem 0.25rem;
+}
+
+.checkbox > input {
+  height: 15px;
+  width: 15px !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 2px solid #314760;
+  border-radius: 4px;
+  outline: none;
+  transition-duration: 0.3s;
+  background-color: #e7eaf3;
+  cursor: pointer;
+}
+
+.checkbox > input:checked {
+  border: 1px solid #314760;
+  background-color: #e7eaf3;
+}
+
+.checkbox > input:checked + span::before {
+  display: block;
+  text-align: center;
+  color: #314760;
+  border: 2px solid #314760;
+  position: absolute;
+  left: 0.7rem;
+  top: 0.2rem;
+}
+
+.checkbox > input:active {
+  border: 2px solid #34495e;
 }

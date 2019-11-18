@@ -10,24 +10,22 @@ class GoalItems extends Component {
     if (isChecked) {
       setTimeout(() => {
         this.props.completeGoal(item);
-      }, 500);
+      }, 200);
     }
   };
 
   createTasks = item => {
     return (
       <li key={item.key}>
-        <input
-          type="checkbox"
-          onChange={e => this.handleChange(e, item)}
-          className="checkmark"
-        />
+        <label className="checkbox">
+          <input type="checkbox" onChange={e => this.handleChange(e, item)} />
+        </label>
         {item.text}
         <button
           onClick={() => this.props.deleteGoal(item)}
           className="remove-button"
         >
-          remove x
+          remove &#9747;
         </button>
       </li>
     );

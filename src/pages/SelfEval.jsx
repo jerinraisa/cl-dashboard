@@ -1,6 +1,6 @@
 import React from "react";
-import Form from "../components/TaskList/Form.jsx";
-import Reflection from "../components/Likert/Likert.jsx";
+import Form from "../components/TaskList/index.jsx";
+import Likert from "../components/Likert/index.jsx";
 import styled from "styled-components";
 import { MainContainer, Row } from "../components/Global/Sections.jsx";
 
@@ -18,10 +18,6 @@ class SelfEval extends React.Component {
     return (
       <div>
         <MainContainer>
-          {/* <Row>
-            <h1>Self Evaluation</h1>
-          </Row> */}
-          {/* Current Week */}
           <Row>
             <h2>Week: September 1 - September 3, 2019</h2>
           </Row>
@@ -40,7 +36,7 @@ class SelfEval extends React.Component {
             <h5>Weekly Reflection</h5>
           </Row>
           <Row>
-            <Reflection></Reflection>
+            <Likert></Likert>
           </Row>
         </MainContainer>
       </div>

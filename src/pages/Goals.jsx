@@ -1,11 +1,8 @@
 import React from "react";
 import { MainContainer, Row } from "../components/Global/Sections";
 import styled from "styled-components";
-import GoalList from "../components/GoalsList/GoalList.jsx";
-import ProgressBar from "../components/ProgressBar/ProgressBar.jsx";
-
-var GoalCounter = 0;
-var GoalComplete = 0;
+import GoalList from "../components/GoalsList/index.jsx";
+import ProgressBar from "../components/ProgressBar/index.jsx";
 
 const DateContainer = styled.div`
   display: flex;
@@ -19,7 +16,6 @@ const TopContainer = styled.div`
 `;
 
 const TrackerContainer = styled.div`
-  border: 1px solid #99a3ad;
   display: flex;
   align-content: center;
   flex-direction: column;
@@ -29,8 +25,8 @@ const TrackerContainer = styled.div`
 `;
 
 const ProgressBarContainer = styled.div`
-  border: 1px solid red;
   display: flex;
+  padding-top: 1em;
   justify-content: center;
   width: 100%;
   height: auto;
@@ -96,7 +92,6 @@ class Goals extends React.Component {
       element.value = "";
     }
 
-    GoalCounter = GoalCounter + 1;
     console.log(this.state.items);
   };
 
@@ -110,7 +105,6 @@ class Goals extends React.Component {
       items: filteredItems,
       completedItems: [...this.state.completedItems, goal]
     });
-    GoalComplete = GoalComplete + 1;
   };
 
   deleteGoal = goal => {
@@ -122,7 +116,6 @@ class Goals extends React.Component {
       ...this.state,
       items: filteredItems
     });
-    GoalCounter = GoalCounter - 1;
   };
 
   render() {
@@ -151,8 +144,10 @@ class Goals extends React.Component {
             <TrackerContainer>
               <h5>Goal Tracker</h5>
               <ProgressBarContainer>
-                {/* const Percentage = GoalComplete/GoalCounter; */}
-                <ProgressBar />
+                <ProgressBar
+                  items={this.state.items}
+                  completedItems={this.state.completedItems}
+                />
               </ProgressBarContainer>
             </TrackerContainer>
           </TopContainer>

@@ -61,10 +61,6 @@ class Likert extends React.Component {
     }
   };
 
-  disabled() {
-    // if not submitted then disabled == false
-    // if submitted and weekday
-  }
   render() {
     return (
       <>
