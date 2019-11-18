@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import "./List.css";
 import axios from "axios";
 
 const ListCard = styled.div`

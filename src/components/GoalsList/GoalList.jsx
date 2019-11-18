@@ -14,7 +14,9 @@ class GoalList extends React.Component {
               placeholder="Add a goal"
               className={"input-field"}
             ></input>
-            <button type="submit">+</button>
+            <button type="submit" className="add-button">
+              +
+            </button>
           </form>
           <GoalItems
             entries={this.props.items}

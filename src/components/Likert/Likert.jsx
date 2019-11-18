@@ -12,7 +12,7 @@ const ButtonContainer = styled.div`
   margin-top: 10px;
 `;
 
-class Reflection extends React.Component {
+class Likert extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -88,4 +88,4 @@ class Reflection extends React.Component {
   }
 }
 
-export default Reflection;
+export default Likert;

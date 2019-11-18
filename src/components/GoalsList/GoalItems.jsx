@@ -17,9 +17,18 @@ class GoalItems extends Component {
   createTasks = item => {
     return (
       <li key={item.key}>
-        <input type="checkbox" onChange={e => this.handleChange(e, item)} />
+        <input
+          type="checkbox"
+          onChange={e => this.handleChange(e, item)}
+          className="checkmark"
+        />
         {item.text}
-        <button onClick={() => this.props.deleteGoal(item)}>Delete</button>
+        <button
+          onClick={() => this.props.deleteGoal(item)}
+          className="remove-button"
+        >
+          remove x
+        </button>
       </li>
     );
   };
