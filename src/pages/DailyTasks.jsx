@@ -1,8 +1,7 @@
 import React from "react";
 import { MainContainer, Row } from "../components/Global/Sections.jsx";
-import List from "../components/TaskList/Form.jsx";
+import Form from "../components/TaskList/Form.jsx";
 import styled from "styled-components";
-// import Archive from "../Archive.jsx";
 import ArchiveImg from "../assets/40x43.png";
 
 let d = new Date();
@@ -67,7 +66,7 @@ class DailyTasks extends React.Component {
           </Row>
         </DateContainer>
         <ListContainer>
-          <List placeholder={"What did I do today?"} />
+          <Form name="daily-tasks" placeholder={"What did I do today?"} />
         </ListContainer>
         <ArchivesContainer>
           <h5>Archives</h5>
