@@ -5,9 +5,12 @@ const app = express();
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 5000;
 const db = mongoose.connection;
-const addItem = require("./controllers/addItem");
-const getItems = require("./controllers/getItems");
-const removeItems = require("./controllers/removeItem");
+const addDT = require("../controllers/addItem").addDailyTasks;
+const addLearn = require("../controllers/addItem").addLearn;
+const getTasks = require("../controllers/getItems").DT;
+const getLearn = require("../controllers/getItems").LL;
+const removeDT = require("../controllers/removeItem").removeTask;
+const removeLL = require("../controllers/removeItem").removeLearn;
 
 app.use(bodyParser.json());
 
@@ -26,10 +29,13 @@ db.once("open", () => {
 // var Learn = mongoose.model("Things I learnt", taskSchema);
 // var Accomplish = mongoose.model("Accomplishments", taskSchema);
 
-app.get("/daily-tasks/get-items", getItems);
+app.get("/daily-tasks/get-items", getTasks);
+app.get("/list-learn/get-items", getLearn);
 
-app.post("/daily-tasks/add-items", addItem);
+app.post("/daily-tasks/add-items", addDT);
+app.post("/list-learn/add-items", addLearn);
 
-app.delete("/daily-tasks/remove-items", removeItems);
+app.delete("/daily-tasks/remove-items", removeDT);
+app.delete("/list-learn/remove-items", removeLL);
 
 app.listen(PORT, () => console.log("Listening on port", PORT));

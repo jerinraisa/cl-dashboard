@@ -2,11 +2,12 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 
-var Task = require("../models/task");
+var Task = require("../models/task").Task;
+var Learn = require("../models/task").Learn;
 
 app.use(bodyParser.json());
 
-const removeItem = (req, res) => {
+const removeTask = (req, res) => {
   console.log(req.body);
   return Task.deleteOne({ _id: req.body._id })
     .exec()
@@ -22,4 +23,20 @@ const removeItem = (req, res) => {
     );
 };
 
-module.exports = removeItem;
+const removeLearn = (req, res) => {
+  console.log(req.body);
+  return Learn.deleteOne({ _id: req.body._id })
+    .exec()
+    .then(deleted =>
+      res.json({
+        message: "Task deleted successfully"
+      })
+    )
+    .catch(error =>
+      res.status(500).json({
+        message: "Error deleting Task"
+      })
+    );
+};
+
+module.exports = { removeTask, removeLearn };
