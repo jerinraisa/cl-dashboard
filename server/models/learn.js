@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const learnSchema = new mongoose.Schema({
   item: String,
   date: String,
-  listName: String,
   complete: Boolean
 });
 
