@@ -156,7 +156,7 @@ class Goals extends React.Component {
           </Row>
           <CompleteBox>
             {this.state.completedItems.map((value, i) => (
-              <p key={`${value.text}-${i}`}>{value.text}</p>
+              <h6 key={`${value.text}-${i}`}>{value.text}</h6>
             ))}
           </CompleteBox>
         </MainContainer>
