@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
-const taskSchema = new mongoose.Schema({
+const learnSchema = new mongoose.Schema({
   item: String,
   date: String,
   listName: String,
   complete: Boolean
 });
 
-var Task = mongoose.model("Tasks", taskSchema);
+var Learn = mongoose.model("Learn", learnSchema);
 
-module.exports = Task;
+module.exports = Learn;

@@ -7,6 +7,7 @@ app.use(bodyParser.json());
 
 const addScore = req => {
   console.log(req.body);
+
   // if value already exists for the week, update the existing form
   var newEval = new Eval(req.body);
   newEval.save();
