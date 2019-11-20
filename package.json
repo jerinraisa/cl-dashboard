@@ -11,7 +11,7 @@
     "mongo": "^0.1.0",
     "mongoose": "^5.7.7",
     "morgan": "^1.9.1",
-    "react": "^16.9.0",
+    "react": "^16.12.0",
     "react-dom": "^16.9.0",
     "react-dropdown-date": "0.0.18",
     "react-dropdowns-datepicker": "^1.0.3",
