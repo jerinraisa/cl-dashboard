@@ -1,8 +1,8 @@
 import React from "react";
-import List from "../Form";
-import Reflection from "../Likert";
+import Form from "../components/TaskList/Form.jsx";
+import Reflection from "../components/Likert/Likert.jsx";
 import styled from "styled-components";
-import { MainContainer, Row } from "../Sections";
+import { MainContainer, Row } from "../components/Global/Sections.jsx";
 
 const ListContainer = styled.div`
   display: flex;
@@ -27,11 +27,17 @@ class SelfEval extends React.Component {
           </Row>
           <hr />
           <ListContainer>
-            <List placeholder={"Something I learned this week..."} />
-            <List placeholder={"Something I accomplished this week..."} />
+            <Form
+              placeholder={"Something I learned this week..."}
+              name="list-learn"
+            />
+            <Form
+              placeholder={"Something I accomplished this week..."}
+              name="accomplishments"
+            />
           </ListContainer>
           <Row>
-            <h4>Weekly Reflection</h4>
+            <h5>Weekly Reflection</h5>
           </Row>
           <Row>
             <Reflection></Reflection>

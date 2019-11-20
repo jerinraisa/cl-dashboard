@@ -1,16 +1,14 @@
 import React from "react";
 import "./App.css";
-import axios from "axios";
-import Board from "./components/Board";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <Board />
-      </div>
-    );
-  }
+import Navigation from "./components/Global/Navigation.jsx";
+
+function App() {
+  return (
+    <div className="App">
+      <Navigation />
+    </div>
+  );
 }
 
 export default App;

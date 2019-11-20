@@ -1,0 +1,89 @@
+.ListCard .header input {
+  padding: 5px 5px;
+  font-size: 14px;
+  color: #83909f;
+  border: transparent;
+  width: 85%;
+}
+
+.ListCard {
+  margin: 3vh 0;
+  padding: 10px;
+  width: 47%;
+  height: auto;
+  max-height: 100%;
+  border: 1px solid #99a3ad;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.ListCard .theList {
+  list-style: none;
+  padding-left: 0;
+  width: 50%;
+}
+
+.ListCard .theList li {
+  color: #314760;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 5px;
+  list-style: none;
+
+  transition: background-color 0.2s ease-out;
+}
+
+.ListCard .theList li:hover {
+  cursor: pointer;
+}
+
+ul.theList {
+  padding: 0;
+}
+
+.submit {
+  border: 0;
+  font-size: 25px;
+  background: transparent;
+  text-align: center;
+}
+
+.input-field {
+  width: 90%;
+  color: rgb(49, 71, 96);
+  font-size: 14px;
+  border: 0;
+  padding: 5px 5px;
+  background: transparent;
+}
+
+.input-field:focus {
+  outline: 0;
+}
+.input-field::placeholder {
+  color: #83909f;
+}
+
+.add-button {
+  border: 0;
+  font-size: 25px;
+  background: transparent;
+  text-align: center;
+}
+
+input:focus {
+  outline: 0 !important;
+}
+
+.remove-button {
+  display: inline-block;
+  float: right;
+  color: #d38492;
+  border: 0;
+  margin-right: 10px;
+  background: transparent;
+}
+
+.remove-button:focus {
+  outline: 0;
+}
