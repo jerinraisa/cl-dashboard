@@ -6411,7 +6411,14 @@ moment@^2.15.1, moment@^2.24.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
-mongodb@3.3.4:
+mongo@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/mongo/-/mongo-0.1.0.tgz#c8af0f8df98d4894b772b37342987c3becf3718c"
+  integrity sha1-yK8PjfmNSJS3crNzQph8O+zzcYw=
+  dependencies:
+    mongodb "*"
+
+mongodb@*, mongodb@3.3.4:
   version "3.3.4"
   resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-3.3.4.tgz#f52eec4a04005101e63715d4d1f67bf784fa0aef"
   integrity sha512-6fmHu3FJTpeZxacJcfjUGIP3BSteG0l2cxLkSrf1nnnS1OrlnVGiP9P/wAC4aB6dM6H4vQ2io8YDjkuPkje7AA==
@@ -8298,7 +8305,7 @@ react-router-dom@^5.1.0:
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
 
-react-router@5.1.2, react-router@^5.1.0:
+react-router@5.1.2, react-router@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-5.1.2.tgz#6ea51d789cb36a6be1ba5f7c0d48dd9e817d3418"
   integrity sha512-yjEuMFy1ONK246B+rsa0cUam5OeAQ8pyclRDgpxuSCrAlJ1qN9uZ5IgyKC7gQg0w8OM50NXHEegPh/ks9YuR2A==
