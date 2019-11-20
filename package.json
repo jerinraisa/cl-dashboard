@@ -46,6 +46,6 @@
     ]
   },
   "devDependencies": {
-    "ts-pnp": "^1.1.4"
+    "ts-pnp": "^1.1.5"
   }
 }
