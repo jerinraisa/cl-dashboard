@@ -1,7 +1,8 @@
 import React from "react";
 import { MainContainer, Row } from "../components/Global/Sections";
 import styled from "styled-components";
-import GoalList from "../components/GoalsList/GoalList.jsx";
+import GoalList from "../components/GoalsList/index.jsx";
+import ProgressBar from "../components/ProgressBar/index.jsx";
 
 const DateContainer = styled.div`
   display: flex;
@@ -15,12 +16,20 @@ const TopContainer = styled.div`
 `;
 
 const TrackerContainer = styled.div`
-  border: 1px solid #99a3ad;
   display: flex;
-  justify-content: center;
+  align-content: center;
+  flex-direction: column;
   width: 50%;
   height: auto;
   border-radius: 10px;
+`;
+
+const ProgressBarContainer = styled.div`
+  display: flex;
+  padding-top: 1em;
+  justify-content: center;
+  width: 100%;
+  height: auto;
 `;
 
 const ListContainer = styled.div`
@@ -134,6 +143,12 @@ class Goals extends React.Component {
             </ListContainer>
             <TrackerContainer>
               <h5>Goal Tracker</h5>
+              <ProgressBarContainer>
+                <ProgressBar
+                  items={this.state.items}
+                  completedItems={this.state.completedItems}
+                />
+              </ProgressBarContainer>
             </TrackerContainer>
           </TopContainer>
           <Row>
@@ -141,7 +156,7 @@ class Goals extends React.Component {
           </Row>
           <CompleteBox>
             {this.state.completedItems.map((value, i) => (
-              <p key={`${value.text}-${i}`}>{value.text}</p>
+              <h6 key={`${value.text}-${i}`}>{value.text}</h6>
             ))}
           </CompleteBox>
         </MainContainer>

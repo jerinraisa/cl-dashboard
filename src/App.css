@@ -37,6 +37,21 @@ h5 {
   margin-bottom: 0;
 }
 
+h6 {
+  color: #313660;
+  font-size: 0.9em;
+  padding: 5px;
+  font-weight: 400;
+  margin: 5px;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  display: list-item; /* This has to be "list-item"                                               */
+  list-style-type: disc; /* See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type     */
+  list-style-position: inside;
+}
+
 p {
   color: #313660;
 }
@@ -76,11 +91,4 @@ ul {
 li {
   width: 100%;
   padding: 5px;
-}
-
-p {
-  padding: 5px;
-  display: list-item; /* This has to be "list-item"                                               */
-  list-style-type: disc; /* See https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type     */
-  list-style-position: inside;
 }
