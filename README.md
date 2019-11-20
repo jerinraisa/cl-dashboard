@@ -11,13 +11,14 @@ This dashboard is an application to be used by interns at Crowdlinker to track p
 CL Dashboard uses the following technologies. 
 ### Frontend
 * React.js (v16.9.0) 
+* React Router (v5.1.2)
 * Styled Components (v3.3.0)
 
 ### Backend
 * Node.js 
 * Express.js (v4.17.1)
 * MongoDB (v0.1.0)
-* Mongoose (v5.7.7)
+* Mongoose (v5.7.12)
 * Axios (v0.19.0)
 * Cors (v2.8.5)
 
