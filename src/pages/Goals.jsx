@@ -96,26 +96,22 @@ class Goals extends React.Component {
   };
 
   completeGoal = goal => {
-    var filteredItems = this.state.items.filter(function(item) {
+    var items = this.state.items.filter(function(item) {
       return item.key !== goal.key;
     });
 
     this.setState({
-      ...this.state,
-      items: filteredItems,
+      items,
       completedItems: [...this.state.completedItems, goal]
     });
   };
 
   deleteGoal = goal => {
-    var filteredItems = this.state.items.filter(function(item) {
+    var items = this.state.items.filter(function(item) {
       return item.key !== goal.key;
     });
 
-    this.setState({
-      ...this.state,
-      items: filteredItems
-    });
+    this.setState({ items });
   };
 
   render() {

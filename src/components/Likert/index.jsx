@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 import styled from "styled-components";
-import Option from "./Option";
+import Option from "./LikertOptions/Option";
 
 let submitted = false; // add a condition for when the week resets
 

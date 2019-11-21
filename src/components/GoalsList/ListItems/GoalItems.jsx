@@ -6,15 +6,22 @@ class GoalItems extends Component {
   }
 
   handleChange = (e, item) => {
-    const isChecked = e.target.checked;
-    if (isChecked) {
+    if (e.target.checked) {
       setTimeout(() => {
         this.props.completeGoal(item);
       }, 200);
     }
   };
 
-  createTasks = item => {
+  // handleChange = (e, undo_item) => {
+  //   if (e.target.checked) {
+  //     setTimeout(() => {
+  //       this.props.incompleteGoal(undo_item);
+  //     }, 200);
+  //   }
+  // };
+
+  createItem = item => {
     return (
       <li key={item.key}>
         <label className="checkbox">
@@ -32,10 +39,13 @@ class GoalItems extends Component {
   };
 
   render() {
-    var entries = this.props.entries;
-    var listItems = entries.map(this.createTasks);
-
-    return <ul className="theList">{listItems}</ul>;
+    return (
+      <ul className="theList">
+        {this.props.entries && this.props.entries.length
+          ? this.props.entries.map(this.createItem)
+          : null}
+      </ul>
+    );
   }
 }
 
