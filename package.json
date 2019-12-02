@@ -10,7 +10,7 @@
     "express": "^4.17.1",
     "moment": "^2.24.0",
     "mongo": "^0.1.0",
-    "mongoose": "^5.7.12",
+    "mongoose": "^5.7.13",
     "morgan": "^1.9.1",
     "react": "^16.12.0",
     "react-circular-progressbar": "^2.0.3",
