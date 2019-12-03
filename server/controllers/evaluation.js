@@ -1,12 +1,11 @@
 var Eval = require("../models/evaluation");
 
-const get = (req, res) => {
-  return Eval.find({ complete: false })
-    .then(tasks => res.json(tasks))
-    .catch(error => res.json(errorMessage()));
-};
+// const get = (req, res) => {
+//   return Eval.find({ complete: false }).then(tasks => res.json(tasks));
+//   // .catch(error => res.json(errorMessage()));
+// };
 
-const add = (req, res) => {
+const submit = (req, res) => {
   var newEval = new Eval(req.body);
   newEval
     .save()
@@ -19,4 +18,4 @@ const add = (req, res) => {
     });
 };
 
-module.exports = { add };
+module.exports = { submit };

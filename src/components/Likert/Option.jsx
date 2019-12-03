@@ -9,7 +9,7 @@ class Option extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 0
+      value: ""
     };
   }
 
@@ -19,28 +19,18 @@ class Option extends React.Component {
       value: key
     });
 
-    this.props.callBack(key, this.props.info.num);
-    // this.saveData(key);
+    this.props.callBack(key, this.props.prompt);
   };
-
-  // saveData(score) {
-  //   alert(this.props.prompt);
-  //   axios.post("/evaluation/submit-evaluation", {
-  //     week: "test week",
-  //     prompt: this.props.prompt,
-  //     score: score
-  //   });
-  // }
 
   render() {
     return (
       <div className="item">
-        <p>{this.props.info.prompt}</p>
+        <p>{this.props.prompt}</p>
         <section>
           {Options.map((option, index) => (
             <button
               className={
-                this.state.active === index ? "selected" : "likert-option"
+                this.state.value === index ? "selected" : "likert-option"
               }
               key={index}
               disabled={submitted}

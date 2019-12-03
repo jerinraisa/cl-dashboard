@@ -2,6 +2,8 @@ import React from "react";
 import "./index.css";
 import styled from "styled-components";
 import Option from "./Option";
+import Prompts from "./Prompts";
+import axios from "axios";
 
 let submitted = false; // add a condition for when the week resets
 
@@ -17,26 +19,7 @@ class Likert extends React.Component {
     super(props);
     this.state = {
       submitted: false,
-      option1: {
-        num: "1",
-        prompt: "I managed my time well",
-        data: 0
-      },
-      option2: {
-        num: "2",
-        prompt: "I completed all of my assigned tasks.",
-        data: 0
-      },
-      option3: {
-        num: "3",
-        prompt: "I collaborated with my coworkers.",
-        data: 0
-      },
-      option4: {
-        num: "4",
-        prompt: "I learned valuable skills.",
-        data: 0
-      }
+      promptData: []
     };
   }
 
@@ -46,19 +29,46 @@ class Likert extends React.Component {
         submitted: true
       });
       submitted = true;
-      // this.getValues();
+      this.saveValues();
       return true;
     }
   };
 
-  getValues = (value, num) => {};
+  getValues = (numVal, prompt) => {
+    let exists = false;
+    const { promptData } = this.state;
+    exists = promptData.find(existingPrompts => existingPrompts.id === prompt);
+    if (exists) {
+      promptData.map((data, i) => {
+        if (data.id === prompt) {
+          data.value = numVal;
+        }
+      });
+    } else {
+      promptData.push({
+        id: prompt,
+        value: numVal
+      });
+    }
+    this.setState({ promptData });
+    console.log(promptData);
+  };
+
+  saveValues() {
+    axios.post("/evaluation/submit", {
+      week: "1st week of December",
+      scores: this.state.promptData
+    });
+  }
+
   render() {
     return (
       <>
-        <Option info={this.state.option1} callBack={this.getValues} />
-        <Option info={this.state.option2} callBack={this.getValues} />
-        <Option info={this.state.option3} callBack={this.getValues} />
-        <Option info={this.state.option4} callBack={this.getValues} />
+        <section>
+          {Prompts.map((prompt, i) => (
+            <Option callBack={this.getValues} key={i} id={i} prompt={prompt} />
+          ))}
+        </section>
         <ButtonContainer>
           <button
             type={"submit"}
