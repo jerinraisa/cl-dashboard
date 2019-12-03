@@ -9,7 +9,6 @@ const add = (req, res) => {
     .then(createdTask => res.json(createdTask))
     .catch(error => {
       console.error(error);
-
       return res.json({ message: "Error" });
     });
 };

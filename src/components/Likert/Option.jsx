@@ -9,35 +9,33 @@ class Option extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      locked: false,
-      active: "",
       value: 0
-      // map week number and submitted (t/f) to ensure one submit / week
     };
   }
 
   // set value with button
   handleClick = (e, key) => {
     this.setState({
-      value: key,
-      active: key
+      value: key
     });
-    this.saveData(key);
+
+    this.props.callBack(key, this.props.info.num);
+    // this.saveData(key);
   };
 
-  saveData(score) {
-    alert(this.props.prompt);
-    axios.post("/submit-evaluation", {
-      week: "test week",
-      prompt: this.props.prompt,
-      score: score
-    });
-  }
+  // saveData(score) {
+  //   alert(this.props.prompt);
+  //   axios.post("/evaluation/submit-evaluation", {
+  //     week: "test week",
+  //     prompt: this.props.prompt,
+  //     score: score
+  //   });
+  // }
 
   render() {
     return (
       <div className="item">
-        <p>{this.props.prompt}</p>
+        <p>{this.props.info.prompt}</p>
         <section>
           {Options.map((option, index) => (
             <button
@@ -52,7 +50,7 @@ class Option extends React.Component {
             </button>
           ))}
         </section>
-        {/* <p> score: {this.state.value}</p> */}
+        <p> score: {this.state.value}</p>
       </div>
     );
   }

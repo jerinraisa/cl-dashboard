@@ -17,30 +17,48 @@ class Likert extends React.Component {
     super(props);
     this.state = {
       submitted: false,
-      data: null
+      option1: {
+        num: "1",
+        prompt: "I managed my time well",
+        data: 0
+      },
+      option2: {
+        num: "2",
+        prompt: "I completed all of my assigned tasks.",
+        data: 0
+      },
+      option3: {
+        num: "3",
+        prompt: "I collaborated with my coworkers.",
+        data: 0
+      },
+      option4: {
+        num: "4",
+        prompt: "I learned valuable skills.",
+        data: 0
+      }
     };
   }
 
   submit = () => {
-    var confirm = window.confirm("Submit?");
-    if (confirm) {
+    if (window.confirm("Submit?")) {
       this.setState({
         submitted: true
       });
       submitted = true;
-
+      // this.getValues();
       return true;
-      // submit values to some database
     }
   };
 
+  getValues = (value, num) => {};
   render() {
     return (
       <>
-        <Option prompt={"I managed my time well."} />
-        <Option prompt={"I completed all of my assigned tasks."} />
-        <Option prompt={"I collaborated with my coworkers."} />
-        <Option prompt={"I improved on x skill."} />
+        <Option info={this.state.option1} callBack={this.getValues} />
+        <Option info={this.state.option2} callBack={this.getValues} />
+        <Option info={this.state.option3} callBack={this.getValues} />
+        <Option info={this.state.option4} callBack={this.getValues} />
         <ButtonContainer>
           <button
             type={"submit"}
