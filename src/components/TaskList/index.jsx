@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import axios from "axios";
 import "./index.css";
+import * as moment from "moment";
+
+let date = moment().format("MMM Do YY");
 
 const ListCard = styled.div`
   margin: 3vh 0;
@@ -54,8 +57,6 @@ class Form extends React.Component {
     axios
       .post(path, {
         item: this.state.value,
-        // list: this.props.name,
-        date: Date(),
         complete: false
       })
       .then(res => {
@@ -72,6 +73,13 @@ class Form extends React.Component {
       this.setState({ items: res.data });
     });
   };
+
+  setFilter() {
+    const path = "/" + this.state.name + "/set-filter";
+    axios.post(path, {
+      hello: "helllo"
+    });
+  }
 
   // handle enter key press
   onKeyPress = e => {
@@ -117,7 +125,7 @@ class Form extends React.Component {
         />
         <hr />
         <ul>
-          {this.state.items.map((item, index) => (
+          {this.state.items.map(item => (
             <div key={item._id}>
               <li>
                 {item.item}{" "}
