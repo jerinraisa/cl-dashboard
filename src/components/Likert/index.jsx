@@ -9,7 +9,7 @@ let submitted = false; // add a condition for when the week resets
 const ButtonContainer = styled.div`
   text-align: right;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 5px;
 `;
 
 class Likert extends React.Component {

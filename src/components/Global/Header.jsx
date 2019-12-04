@@ -6,6 +6,7 @@ const TopWrapper = styled.div`
   height: 11vh;
   justify-content: space-between;
   padding: 0 10px;
+  font-weight: bolder;
 `;
 
 class Header extends React.Component {

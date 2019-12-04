@@ -15,6 +15,9 @@ class Archive extends Component {
     console.log(e);
   };
 
+  select(e) {
+    alert(e.target.value);
+  }
   render() {
     return (
       <ArchiveContainer>
@@ -22,21 +25,21 @@ class Archive extends Component {
           <Dropdown
             className="test2"
             options={Month}
-            onChange={this._onSelect}
+            onChange={e => this.select(e)}
             placeholder="Month"
           />
         </div>
         <Dropdown
           className="test1"
           options={Day}
-          onChange={this._onSelect}
+          // onChange={this._onSelect}
           placeholder="Day"
         />
 
         <Dropdown
           className="test3"
           options={Year}
-          onChange={this._onSelect}
+          // onChange={this._onSelect}
           placeholder="Year"
         />
       </ArchiveContainer>

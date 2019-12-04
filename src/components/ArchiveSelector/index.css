@@ -7,6 +7,7 @@
   overflow: hidden;
   background-color: none;
   border-bottom: 1px solid #784b5b;
+  font-family: "Signika";
   box-sizing: border-box;
   color: #784b5b;
   cursor: default;
@@ -64,6 +65,7 @@
 .Dropdown-option {
   box-sizing: border-box;
   color: rgba(51, 51, 51, 0.8);
+  font-family: "Signika";
   cursor: pointer;
   display: block;
   padding: 8px 10px;

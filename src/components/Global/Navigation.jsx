@@ -27,6 +27,7 @@ const IconImage = styled.img`
 `;
 
 const NameText = styled.h3`
+  font-family: "Signika";
   font-size: 20px;
   font-weight: 700;
   color: white;
