@@ -1,42 +1,85 @@
-.ListClass:focus {
-  outline: 0;
+.Dropdown-root {
+  position: relative;
 }
 
-.input-field {
-  width: 90%;
-  color: rgb(49, 71, 96);
-  font-size: 14px;
-  border: 0;
-  padding: 5px 5px;
-  background: transparent;
-}
-.input-field:focus {
-  outline: 0;
-}
-.input-field::placeholder {
-  color: #83909f;
+.Dropdown-control {
+  position: relative;
+  overflow: hidden;
+  background-color: none;
+  border-bottom: 1px solid #6b8093;
+  box-sizing: border-box;
+  color: #314760;
+  cursor: default;
+  outline: none;
+  padding: 8px 40px 8px 8px;
+  transition: all 200ms ease;
 }
 
-.add-button {
-  border: 0;
-  font-size: 25px;
-  background: transparent;
-  text-align: center;
+.Dropdown-control:hover {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
 }
 
-input:focus {
-  outline: 0 !important;
+.Dropdown-arrow {
+  border-color: #6b8093 transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  content: " ";
+  display: block;
+  height: 0;
+  margin-top: -ceil(2.5);
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  width: 0;
+  content: "\f078";
 }
 
-.remove-button {
-  display: inline-block;
-  float: right;
-  color: #d38492;
-  border: 0;
-  margin-right: 10px;
-  background: transparent;
+.is-open .Dropdown-arrow {
+  border-color: transparent transparent #999;
+  border-width: 0 5px 5px;
 }
 
-.remove-button:focus {
-  outline: 0;
+.Dropdown-menu {
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  margin-top: -1px;
+  max-height: 100px;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1000;
+  -webkit-overflow-scrolling: touch;
+}
+
+.Dropdown-menu .Dropdown-group > .Dropdown-title {
+  padding: 8px 10px;
+  color: rgba(51, 51, 51, 1);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.Dropdown-option {
+  box-sizing: border-box;
+  color: rgba(51, 51, 51, 0.8);
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+}
+
+.Dropdown-option:last-child {
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.Dropdown-option:hover {
+  background-color: #f2f9fc;
+  color: #333;
+}
+
+.Dropdown-option.is-selected {
+  background-color: #f2f9fc;
+  color: #333;
 }

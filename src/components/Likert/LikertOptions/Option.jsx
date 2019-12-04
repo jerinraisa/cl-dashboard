@@ -10,7 +10,6 @@ class Option extends React.Component {
     this.state = {
       locked: false,
       active: "",
-      // options: ["strongly disagree", "disagree", "agree", "strongly agree"],
       value: 0
       // map week number and submitted (t/f) to ensure one submit / week
     };

@@ -22,6 +22,7 @@ class GoalList extends React.Component {
             entries={this.props.items}
             deleteGoal={this.props.deleteGoal}
             completeGoal={this.props.completeGoal}
+            incompleteGoal={this.props.items}
           />
         </div>
         {/* <hr /> */}

@@ -31,8 +31,25 @@ const DateContainer = styled.div`
   margin-top: 0.5em;
 `;
 
+const Title = styled.div`
+  display: flex;
+  width: 50%;
+  /* border: 1px solid #99a3ad; */
+`;
+
+const DateSelector = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  > div {
+    justify-content: space-between;
+  }
+  /* border: 1px solid red; */
+`;
+
 const ArchivesContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   width: 48.5%;
   /* border: 1px solid #99a3ad; */
 `;
@@ -70,9 +87,13 @@ class DailyTasks extends React.Component {
           <Form name="daily-tasks" placeholder={"What did I do today?"} />
         </ListContainer>
         <ArchivesContainer>
-          <h5>Archives</h5>
-          <ArcImg src={ArchiveImg} />
-          {/* <Archive /> */}
+          <Title>
+            <h5>Archives</h5>
+            <ArcImg src={ArchiveImg} />
+          </Title>
+          <DateSelector>
+            <Archive />
+          </DateSelector>
         </ArchivesContainer>
         <CompleteBox></CompleteBox>
       </MainContainer>

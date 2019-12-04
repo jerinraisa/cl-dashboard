@@ -15,7 +15,7 @@ const NavWrapper = styled.div`
   padding-left: 3em;
   padding-top: 10px;
   padding-bottom: 40px;
-  background: #97aef4;
+  background: #e6a541;
   font-size: 1em;
 `;
 

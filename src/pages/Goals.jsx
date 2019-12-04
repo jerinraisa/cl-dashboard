@@ -106,6 +106,17 @@ class Goals extends React.Component {
     });
   };
 
+  incompleteGoal = goal => {
+    var items = this.state.items.filter(function(item) {
+      return item.key !== goal.key;
+    });
+
+    this.setState({
+      items,
+      completedItems: [...this.state.items, goal]
+    });
+  };
+
   deleteGoal = goal => {
     var items = this.state.items.filter(function(item) {
       return item.key !== goal.key;
@@ -119,7 +130,7 @@ class Goals extends React.Component {
       <div>
         <MainContainer>
           <Row>
-            <h2>Weekly Goals</h2>
+            <h2>Keep Track of Your Goals</h2>
           </Row>
           <hr />
           <DateContainer>
@@ -133,6 +144,7 @@ class Goals extends React.Component {
               <GoalList
                 items={this.state.items}
                 completeGoal={this.completeGoal}
+                incompleteGoal={this.items}
                 deleteGoal={this.deleteGoal}
                 addItem={this.addItem}
               />
