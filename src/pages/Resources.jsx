@@ -12,7 +12,7 @@ const Col1Container = styled.div`
   height: 80vh;
   width: 60%;
   margin-right: 1.5em;
-  // border: 1px solid #99a3ad;
+  /* // border: 1px solid #99a3ad; */
 `;
 
 const Col2Container = styled.div`
@@ -20,7 +20,7 @@ const Col2Container = styled.div`
   flex-direction: column;
   height: 50vh;
   width: 40%;
-  // border: 1px solid #99a3ad;
+  /* // border: 1px solid #99a3ad; */
 `;
 
 const GoogleReminders = styled.div`
@@ -31,7 +31,8 @@ const GoogleReminders = styled.div`
   height: 20vh;
   margin-bottom: 2.5em;
   max-height: 100%;
-  // border: 1px solid #99a3ad;
+  border: 1px solid #99a3ad;
+  background-color: white;
   border-radius: 10px;
   overflow: auto;
 `;
@@ -42,7 +43,8 @@ const JiraReminders = styled.div`
   width: 85%;
   height: 34vh;
   max-height: 100%;
-  // border: 1px solid #99a3ad;
+  border: 1px solid #99a3ad;
+  background-color: white;
   border-radius: 10px;
   overflow: auto;
 `;
@@ -55,6 +57,7 @@ const MavenLinkHours = styled.div`
   width: 85%;
   height: 45vh;
   max-height: 100%;
+  background-color: white;
   border: 1px solid #99a3ad;
   border-radius: 10px;
   overflow: auto;

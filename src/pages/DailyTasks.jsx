@@ -2,7 +2,7 @@ import React from "react";
 import { MainContainer, Row } from "../components/Global/Sections.jsx";
 import Form from "../components/TaskList/index.jsx";
 import styled from "styled-components";
-import ArchiveImg from "../assets/40x43.png";
+import ArchiveImg from "../assets/20x20.png";
 import Archive from "../components/ArchiveSelector/index.jsx";
 
 let d = new Date();
@@ -21,6 +21,7 @@ const CompleteBox = styled.div`
   padding: 10px;
   width: 47%;
   height: 25vh;
+  background-color: white;
   max-height: 100%;
   border: 1px solid #99a3ad;
   border-radius: 10px;

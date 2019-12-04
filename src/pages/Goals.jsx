@@ -46,9 +46,10 @@ const CompleteBox = styled.div`
   font-size: 1em;
   margin: 3vh 0;
   padding: 10px;
-  width: 35.5%;
+  width: 45%;
   height: 25vh;
   max-height: 100%;
+  background-color: white;
   border: 1px solid #99a3ad;
   border-radius: 10px;
   overflow: auto;

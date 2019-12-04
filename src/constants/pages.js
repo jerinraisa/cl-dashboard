@@ -5,11 +5,11 @@ import Goals from "../pages/Goals.jsx";
 import Resources from "../pages/Resources.jsx";
 
 export const Pages = [
-  {
-    name: "Overview",
-    page: Overview,
-    path: "/overview"
-  },
+  // {
+  //   name: "Overview",
+  //   page: Overview,
+  //   path: "/overview"
+  // },
   {
     name: "Daily Tasks",
     page: DailyTasks,

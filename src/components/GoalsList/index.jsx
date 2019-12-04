@@ -17,6 +17,7 @@ class GoalList extends React.Component {
             <button type="submit" className="add-button">
               +
             </button>
+            <hr />
           </form>
           <GoalItems
             entries={this.props.items}

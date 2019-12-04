@@ -1,15 +1,16 @@
 .ListCard .header input {
   padding: 5px 5px;
   font-size: 14px;
-  color: #83909f;
+  color: #f4b5a6;
   border: transparent;
   width: 85%;
 }
 
 .ListCard {
   margin: 3vh 0;
+  background-color: white;
   padding: 10px;
-  width: 47%;
+  width: 60%;
   height: auto;
   max-height: 100%;
   border: 1px solid #99a3ad;
@@ -47,7 +48,7 @@ ul.theList {
 
 .input-field {
   width: 90%;
-  color: rgb(49, 71, 96);
+  color: black;
   font-size: 14px;
   border: 0;
   padding: 5px 5px;
@@ -58,7 +59,7 @@ ul.theList {
   outline: 0;
 }
 .input-field::placeholder {
-  color: #83909f;
+  color: #f4b5a6;
 }
 
 .add-button {

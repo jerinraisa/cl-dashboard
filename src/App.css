@@ -1,5 +1,5 @@
 body {
-  background-color: #f5f3fa;
+  background-color: #fafafe;
 }
 h1 {
   display: flex;
@@ -14,18 +14,18 @@ h1 {
 }
 
 h2 {
-  color: #313660;
+  color: black;
   padding-bottom: 2px;
 }
 
 h3 {
-  color: #313660;
+  color: black;
   font-size: 1.8em;
   padding-left: 10em;
 }
 
 h4 {
-  color: #6f7e8f;
+  color: black;
   font-size: 1em;
   font-weight: 400;
   margin-top: 10px;
@@ -33,7 +33,7 @@ h4 {
 }
 
 h5 {
-  color: #6f7e8f;
+  color: black;
   font-size: 1.1em;
   font-weight: 400;
   margin-top: 10px;
@@ -41,7 +41,7 @@ h5 {
 }
 
 h6 {
-  color: #313660;
+  color: black;
   font-size: 0.9em;
   padding: 5px;
   font-weight: 400;
@@ -56,7 +56,7 @@ h6 {
 }
 
 p {
-  color: #313660;
+  color: black;
 }
 
 hr {
@@ -82,13 +82,13 @@ a:hover {
 }
 
 .curr-page {
-  background: #ffffff;
+  background: #fafafe;
   color: #ef878d;
   transition: all 0.3s;
 }
 
 ul {
-  color: #314760;
+  color: black;
 }
 
 li {
