@@ -1,10 +1,7 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class GoalItems extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   handleChange = (e, item) => {
     const isChecked = e.target.checked;
     if (isChecked) {
@@ -20,7 +17,7 @@ class GoalItems extends Component {
         <label className="checkbox">
           <input type="checkbox" onChange={e => this.handleChange(e, item)} />
         </label>
-        {item.text}
+        {item.goal}
         <button
           onClick={() => this.props.deleteGoal(item)}
           className="remove-button"
@@ -33,6 +30,9 @@ class GoalItems extends Component {
 
   render() {
     var entries = this.props.entries;
+
+    // axios.get("/goals/get-goals").then(res => (entries = res.data));
+    // console.log(entries);
     var listItems = entries.map(this.createTasks);
 
     return <ul className="theList">{listItems}</ul>;

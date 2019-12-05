@@ -3,6 +3,7 @@ import { MainContainer, Row } from "../components/Global/Sections";
 import styled from "styled-components";
 import GoalList from "../components/GoalsList/index.jsx";
 import ProgressBar from "../components/ProgressBar/index.jsx";
+import axios from "axios";
 
 const DateContainer = styled.div`
   display: flex;
@@ -79,20 +80,26 @@ class Goals extends React.Component {
 
     if (element.value !== "") {
       var newItem = {
-        text: element.value,
-        key: Date.now()
+        goal: element.value,
+        key: Date.now(),
+        date: Date.now(), // change this to MMM DD YY later
+        complete: false
       };
 
-      this.setState(prevState => {
-        return {
-          items: prevState.items.concat(newItem)
-        };
-      });
-
+      axios.post("/goals/add-goals", newItem);
+      this.listUpdate();
       element.value = "";
     }
 
     console.log(this.state.items);
+  };
+
+  listUpdate = () => {
+    axios.get("/goals/get-goals").then(res => {
+      this.setState({
+        items: res.data
+      });
+    });
   };
 
   completeGoal = goal => {
@@ -156,7 +163,7 @@ class Goals extends React.Component {
           </Row>
           <CompleteBox>
             {this.state.completedItems.map((value, i) => (
-              <h6 key={`${value.text}-${i}`}>{value.text}</h6>
+              <h6 key={`${value.goal}-${i}`}>{value.goal}</h6>
             ))}
           </CompleteBox>
         </MainContainer>
