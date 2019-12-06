@@ -1,6 +1,7 @@
 import React from "react";
 import Options from "../../../constants/options";
 import "../index.css";
+import axios from "axios";
 
 let submitted = false; // add a condition for when the week resets
 
@@ -21,7 +22,17 @@ class Option extends React.Component {
       value: key,
       active: key
     });
+    this.saveData(key);
   };
+
+  saveData(score) {
+    alert(this.props.prompt);
+    axios.post("/submit-evaluation", {
+      week: "test week",
+      prompt: this.props.prompt,
+      score: score
+    });
+  }
 
   render() {
     return (

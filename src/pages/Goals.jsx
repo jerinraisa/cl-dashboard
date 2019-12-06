@@ -108,13 +108,13 @@ class Goals extends React.Component {
   };
 
   incompleteGoal = goal => {
-    var items = this.state.items.filter(function(item) {
+    var completedItems = this.state.completedItems.filter(function(item) {
       return item.key !== goal.key;
     });
 
     this.setState({
-      items,
-      completedItems: [...this.state.items, goal]
+      completedItems,
+      items: [...this.state.items, goal]
     });
   };
 
@@ -145,7 +145,6 @@ class Goals extends React.Component {
               <GoalList
                 items={this.state.items}
                 completeGoal={this.completeGoal}
-                incompleteGoal={this.items}
                 deleteGoal={this.deleteGoal}
                 addItem={this.addItem}
               />
@@ -165,7 +164,12 @@ class Goals extends React.Component {
           </Row>
           <CompleteBox>
             {this.state.completedItems.map((value, i) => (
-              <h6 key={`${value.text}-${i}`}>{value.text}</h6>
+              <h6
+                key={`${value.text}-${i}`}
+                onClick={() => this.incompleteGoal(value)}
+              >
+                {value.text}
+              </h6>
             ))}
           </CompleteBox>
         </MainContainer>

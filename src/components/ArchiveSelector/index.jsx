@@ -10,14 +10,20 @@ const ArchiveContainer = styled.div`
   justify-content: space-between;
 `;
 class Archive extends Component {
-  handleChange = e => {
-    this.setState({ value: e });
-    console.log(e);
+  state = {
+    day: "",
+    month: "",
+    year: ""
   };
 
-  select(e) {
-    alert(e.target.value);
-  }
+  // handleChange = (property, value) => {
+  //   this.setState({ ...state, ...{ [property]: value } });
+  //   console.log(e);
+  // };
+
+  // select(e) {
+  //   alert(e.target.value);
+  // }
   render() {
     return (
       <ArchiveContainer>
@@ -25,21 +31,21 @@ class Archive extends Component {
           <Dropdown
             className="test2"
             options={Month}
-            onChange={e => this.select(e)}
+            // onChange={e => this.handleChange("month", e.target.value)}
             placeholder="Month"
           />
         </div>
         <Dropdown
           className="test1"
           options={Day}
-          // onChange={this._onSelect}
+          // onChange={e => this.handleChange("day", e.target.value)}
           placeholder="Day"
         />
 
         <Dropdown
           className="test3"
           options={Year}
-          // onChange={this._onSelect}
+          // onChange={e => this.handleChange("year", e.target.value)}
           placeholder="Year"
         />
       </ArchiveContainer>

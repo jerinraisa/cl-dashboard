@@ -5,7 +5,7 @@ class GoalItems extends Component {
     super(props);
   }
 
-  handleChange = (e, item) => {
+  onCompleteGoal = (e, item) => {
     if (e.target.checked) {
       setTimeout(() => {
         this.props.completeGoal(item);
@@ -25,7 +25,7 @@ class GoalItems extends Component {
     return (
       <li key={item.key}>
         <label className="checkbox">
-          <input type="checkbox" onChange={e => this.handleChange(e, item)} />
+          <input type="checkbox" onChange={e => this.onCompleteGoal(e, item)} />
         </label>
         {item.text}
         <button

@@ -21,39 +21,12 @@ class Likert extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.callBackend()
-  //     .then(res => this.setState({ data: res.message }))
-  //     .catch(e => console.log(e));
-  // }
-
-  callBackend = async () => {
-    const response = await fetch("/add-items");
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message);
-    }
-    return body;
-  };
-
-  // saveForm = async () => {
-  //   const response = await fetch("/save-form");
-  //   const body = await response.json();
-
-  //   if (response.status !== 200) {
-  //     throw Error(body.message);
-  //   }
-  //   return body;
-  // };
-
   submit = () => {
     var confirm = window.confirm("Submit?");
     if (confirm) {
       this.setState({
         submitted: true
       });
-      this.callBackend().then(res => this.setState({ data: res.message }));
       submitted = true;
 
       return true;

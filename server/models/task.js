@@ -2,8 +2,10 @@ const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema({
   item: String,
-  date: Date,
+  date: String,
   complete: Boolean
 });
 
-module.exports = mongoose.model("Daily Tasks", taskSchema);
+var Task = mongoose.model("Tasks", taskSchema);
+
+module.exports = Task;
