@@ -4,6 +4,7 @@ import styled from "styled-components";
 import GoalList from "../components/GoalsList/index.jsx";
 import ProgressBar from "../components/ProgressBar/index.jsx";
 import axios from "axios";
+import { isTSExpressionWithTypeArguments } from "@babel/types";
 
 const DateContainer = styled.div`
   display: flex;
@@ -74,6 +75,10 @@ class Goals extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.listUpdate();
+  }
+
   addItem = e => {
     e.preventDefault();
     const element = document.getElementById("goalInput");
@@ -100,29 +105,40 @@ class Goals extends React.Component {
         items: res.data
       });
     });
+    axios.get("/goals/complete").then(res => {
+      this.setState({
+        completedItems: res.data
+      });
+    });
   };
 
   completeGoal = goal => {
+    console.log(goal._id);
+    axios.put("/goals/edit-goals/" + goal._id, goal);
+
     var filteredItems = this.state.items.filter(function(item) {
       return item.key !== goal.key;
     });
-
     this.setState({
       ...this.state,
       items: filteredItems,
       completedItems: [...this.state.completedItems, goal]
     });
+    this.listUpdate();
   };
 
   deleteGoal = goal => {
+    axios.delete("/goals/remove-goals", {
+      data: goal
+    });
     var filteredItems = this.state.items.filter(function(item) {
       return item.key !== goal.key;
     });
-
     this.setState({
       ...this.state,
       items: filteredItems
     });
+    this.listUpdate();
   };
 
   render() {

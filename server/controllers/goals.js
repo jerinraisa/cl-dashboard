@@ -4,7 +4,7 @@ var Goal = require("../models/goal");
 // initialize date filter
 
 const add = (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   var newGoal = new Goal(req.body);
   newGoal.date = moment().format("MMM Do YY");
   return newGoal
@@ -17,10 +17,31 @@ const add = (req, res) => {
 };
 
 const get = (req, res) => {
-  console.log(Goal.find({ complete: false }));
   return Goal.find({ complete: false })
     .then(tasks => res.json(tasks))
     .catch(error => res.json({ message: "Error" }));
+};
+
+const getComplete = (req, res) => {
+  return Goal.find({ complete: true })
+    .then(tasks => res.json(tasks))
+    .catch(error => res.json({ message: "Error" }));
+};
+
+const edit = (req, res) => {
+  var temp = req.body;
+  console.log(temp._id);
+  console.log(temp.complete);
+  return Goal.findByIdAndUpdate(
+    temp._id,
+    { complete: true },
+    { returnOriginal: false },
+    (err, todo) => {
+      // Handle any possible database errors
+      if (err) return res.status(500).send(err);
+      return res.send(todo);
+    }
+  );
 };
 
 const remove = (req, res) => {
@@ -42,6 +63,8 @@ const remove = (req, res) => {
 
 module.exports = {
   get,
+  getComplete,
   add,
-  remove
+  remove,
+  edit
 };
