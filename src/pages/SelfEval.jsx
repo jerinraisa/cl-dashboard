@@ -13,6 +13,10 @@ const ListContainer = styled.div`
   margin-left: 0px;
 `;
 
+const LikertContainer = styled.div`
+  padding-top: 15px;
+`;
+
 class SelfEval extends React.Component {
   render() {
     return (
@@ -35,9 +39,11 @@ class SelfEval extends React.Component {
           <Row>
             <h5>Weekly Reflection</h5>
           </Row>
-          <Row>
-            <Likert></Likert>
-          </Row>
+          <LikertContainer>
+            <Row>
+              <Likert></Likert>
+            </Row>
+          </LikertContainer>
         </MainContainer>
       </div>
     );

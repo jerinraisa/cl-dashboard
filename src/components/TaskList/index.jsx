@@ -12,6 +12,7 @@ const ListCard = styled.div`
   width: 47%;
   height: auto;
   max-height: 100%;
+  background-color: white;
   border: 1px solid gray;
   border-radius: 10px;
   overflow: auto;

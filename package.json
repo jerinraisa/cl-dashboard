@@ -12,16 +12,17 @@
     "mongo": "^0.1.0",
     "mongoose": "^5.7.12",
     "morgan": "^1.9.1",
- "react": "^16.12.0",
+    "react": "^16.12.0",
     "react-circular-progressbar": "^2.0.3",
-    "react-dom": "^16.9.0",
-    "react-dropdown-date": "0.0.18",
-    "react-dropdowns-datepicker": "^1.0.3",
+    "react-drop-down": "^1.0.3",
+    "react-dropdown": "^1.6.4",
+    "reactstrap": "^8.1.1",
+    "uuid": "^3.3.3",
+    "react-dom": "^16.12.0",
     "react-router": "^5.1.2",
-    "react-router-dom": "^5.1.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "styled-components": "^4.4.1"
-
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,6 +47,6 @@
     ]
   },
   "devDependencies": {
-    "ts-pnp": "^1.1.4"
+    "ts-pnp": "^1.1.5"
   }
 }

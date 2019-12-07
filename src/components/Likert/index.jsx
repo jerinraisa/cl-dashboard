@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.css";
 import styled from "styled-components";
-import Option from "./Option";
+import Option from "./LikertOptions/Option";
 import Prompts from "./Prompts";
 import axios from "axios";
 
@@ -11,7 +11,7 @@ let submitted = false; // add a condition for when the week resets
 const ButtonContainer = styled.div`
   text-align: right;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 5px;
 `;
 
 class Likert extends React.Component {

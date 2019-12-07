@@ -5,6 +5,7 @@ const MainContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
+
 const Row = styled.div`
   display: flex;
   width: 100%;

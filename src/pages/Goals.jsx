@@ -48,9 +48,10 @@ const CompleteBox = styled.div`
   font-size: 1em;
   margin: 3vh 0;
   padding: 10px;
-  width: 35.5%;
+  width: 45%;
   height: 25vh;
   max-height: 100%;
+  background-color: white;
   border: 1px solid #99a3ad;
   border-radius: 10px;
   overflow: auto;
@@ -131,7 +132,7 @@ class Goals extends React.Component {
       <div>
         <MainContainer>
           <Row>
-            <h2>Weekly Goals</h2>
+            <h2>Keep Track of Your Goals</h2>
           </Row>
           <hr />
           <DateContainer>
@@ -164,7 +165,12 @@ class Goals extends React.Component {
           </Row>
           <CompleteBox>
             {this.state.completedItems.map((value, i) => (
-              <h6 key={`${value.goal}-${i}`}>{value.goal}</h6>
+              <h6
+                key={`${value.goal}-${i}`}
+                // onClick={() => this.incompleteGoal(value)}
+              >
+                {value.goal}
+              </h6>
             ))}
           </CompleteBox>
         </MainContainer>

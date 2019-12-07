@@ -1,5 +1,5 @@
 import React from "react";
-import GoalItems from "./GoalItems.jsx";
+import GoalItems from "./ListItems/GoalItems.jsx";
 import "./index.css";
 
 class GoalList extends React.Component {
@@ -17,6 +17,7 @@ class GoalList extends React.Component {
             <button type="submit" className="add-button">
               +
             </button>
+            <hr />
           </form>
           <GoalItems
             entries={this.props.items}

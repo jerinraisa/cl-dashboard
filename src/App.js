@@ -1,12 +1,30 @@
-import React from "react";
 import "./App.css";
+import React from "react";
+import Header from "./components/Global/Header";
+import Navigation from "./components/Global/Navigation";
+import { BrowserRouter as Router } from "react-router-dom";
+import PageSwitcher from "./components/Global/PageSwitcher";
 
-import Navigation from "./components/Global/Navigation.jsx";
+class App extends React.Component {
+  constructor() {
+    super();
 
-function App() {
-  return (
+    this.state = {
+      pageTitle: "Overview"
+    };
+  }
+
+  newPage = (e, pageTitle) => {
+    this.setState({ pageTitle });
+  };
+
+  render = () => (
     <div className="App">
-      <Navigation />
+      <Router>
+        <Header pageTitle={this.state.pageTitle} />
+        <Navigation newPage={this.newPage} />
+        <PageSwitcher />
+      </Router>
     </div>
   );
 }

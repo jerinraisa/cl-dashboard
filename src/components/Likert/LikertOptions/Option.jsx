@@ -1,7 +1,6 @@
 import React from "react";
-import Options from "./Options";
-import "./index.css";
-import axios from "axios";
+import Options from "../../../constants/options";
+import "../index.css";
 
 let submitted = false; // add a condition for when the week resets
 

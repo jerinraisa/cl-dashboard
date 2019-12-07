@@ -1,9 +1,10 @@
 .item {
   display: inline-block;
   padding: 10px;
-  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 15px;
   width: 47%;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   max-height: 100%;
   border-radius: 10px;
   overflow: auto;
@@ -12,41 +13,41 @@
 
 .likert-option:nth-child(1):enabled {
   /* margin-left: 0px !important; */
-  color: #ba5f65;
-  border-color: #ba5f65;
+  color: #784b5b;
+  border-color: #784b5b;
 }
 .likert-option:nth-child(2):enabled {
-  color: #cb8589;
-  border-color: #cb8589;
+  color: #eb606a;
+  border-color: #eb606a;
 }
 .likert-option:nth-child(3):enabled {
-  color: #97a470;
-  border-color: #97a470;
+  color: #f4b5a6;
+  border-color: #f4b5a6;
 }
 
 .likert-option:nth-child(4):enabled {
-  color: #849357;
-  border-color: #849357;
+  color: #f2a33a;
+  border-color: #f2a33a;
 }
 
 .likert-option:hover:nth-child(1):enabled {
-  border-color: #ba5f65;
-  background: #ba5f65;
+  border-color: #784b5b;
+  background: #784b5b;
 }
 
 .likert-option:hover:nth-child(2):enabled {
-  border-color: #cb8589;
-  background: #cb8589;
+  border-color: #eb606a;
+  background: #eb606a;
 }
 
 .likert-option:hover:nth-child(3):enabled {
-  border-color: #97a470;
-  background: #97a470;
+  border-color: #f4b5a6;
+  background: #f4b5a6;
 }
 
 .likert-option:hover:nth-child(4):enabled {
-  border-color: #66743d;
-  background: #66743d;
+  border-color: #f2a33a;
+  background: #f2a33a;
 }
 
 .likert-option {
@@ -84,10 +85,10 @@
 }
 
 .submit-button:enabled {
-  color: #97aef4;
+  color: #784b5b;
 
   text-align: right;
-  border-color: #97aef4;
+  border-color: #784b5b;
 }
 .submit-button {
   color: gray;
@@ -103,6 +104,6 @@
 .submit-button:hover:enabled {
   outline: 0;
   color: white !important;
-  background: #97aef4;
+  background: #784b5b;
   transition: all 0.3s;
 }
