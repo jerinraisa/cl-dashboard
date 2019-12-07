@@ -116,27 +116,12 @@ class Goals extends React.Component {
     console.log(goal._id);
     axios.put("/goals/edit-goals/" + goal._id, goal);
 
-    var filteredItems = this.state.items.filter(function(item) {
-      return item.key !== goal.key;
-    });
-    this.setState({
-      ...this.state,
-      items: filteredItems,
-      completedItems: [...this.state.completedItems, goal]
-    });
     this.listUpdate();
   };
 
   deleteGoal = goal => {
     axios.delete("/goals/remove-goals", {
       data: goal
-    });
-    var filteredItems = this.state.items.filter(function(item) {
-      return item.key !== goal.key;
-    });
-    this.setState({
-      ...this.state,
-      items: filteredItems
     });
     this.listUpdate();
   };
