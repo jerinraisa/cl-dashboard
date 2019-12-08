@@ -96,8 +96,6 @@ class Goals extends React.Component {
       this.listUpdate();
       element.value = "";
     }
-
-    console.log(this.state.items);
   };
 
   listUpdate = () => {
@@ -114,9 +112,8 @@ class Goals extends React.Component {
   };
 
   completeGoal = goal => {
-    console.log(goal._id);
-    axios.put("/goals/edit-goals/" + goal._id, goal);
-
+    var newComplete = !goal.complete;
+    axios.put("/goals/edit-goals/" + goal._id, { goal, newComplete });
     this.listUpdate();
   };
 
@@ -167,7 +164,7 @@ class Goals extends React.Component {
             {this.state.completedItems.map((value, i) => (
               <h6
                 key={`${value.goal}-${i}`}
-                // onClick={() => this.incompleteGoal(value)}
+                onClick={() => this.completeGoal(value)}
               >
                 {value.goal}
               </h6>

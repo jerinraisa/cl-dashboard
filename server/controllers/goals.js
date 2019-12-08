@@ -4,7 +4,6 @@ var Goal = require("../models/goal");
 // initialize date filter
 
 const add = (req, res) => {
-  // console.log(req.body);
   var newGoal = new Goal(req.body);
   newGoal.date = moment().format("MMM Do YY");
   return newGoal
@@ -29,12 +28,10 @@ const getComplete = (req, res) => {
 };
 
 const edit = (req, res) => {
-  var temp = req.body;
-  console.log(temp._id);
-  console.log(temp.complete);
+  const { goal, newComplete } = req.body;
   return Goal.findByIdAndUpdate(
-    temp._id,
-    { complete: true },
+    goal._id,
+    { complete: newComplete },
     { returnOriginal: false },
     (err, todo) => {
       // Handle any possible database errors
