@@ -39,7 +39,7 @@ class Option extends React.Component {
             </button>
           ))}
         </section>
-        <p> score: {this.state.value}</p>
+        {/* <p> score: {this.state.value}</p> */}
       </div>
     );
   }

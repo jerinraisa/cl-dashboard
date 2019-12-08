@@ -1,15 +1,9 @@
-import Overview from "../pages/Overview";
-import DailyTasks from "../pages/DailyTasks.jsx";
-import SelfEval from "../pages/SelfEval.jsx";
-import Goals from "../pages/Goals.jsx";
-import Resources from "../pages/Resources.jsx";
+import DailyTasks from "../pages/daily-tasks";
+import SelfEval from "../pages/self-eval";
+import Goals from "../pages/goals";
+import Resources from "../pages/resources";
 
 export const Pages = [
-  // {
-  //   name: "Overview",
-  //   page: Overview,
-  //   path: "/overview"
-  // },
   {
     name: "Daily Tasks",
     page: DailyTasks,

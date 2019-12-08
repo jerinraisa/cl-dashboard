@@ -75,13 +75,6 @@ class Form extends React.Component {
     });
   };
 
-  setFilter() {
-    const path = "/" + this.state.name + "/set-filter";
-    axios.post(path, {
-      hello: "helllo"
-    });
-  }
-
   // handle enter key press
   onKeyPress = e => {
     if (e.key === "Enter") {

@@ -20,10 +20,11 @@ const NavWrapper = styled.div`
 
 const Links = styled.div`
   display: flex;
-  height: 25vh;
+  height: 35vh;
   justify-content: space-between;
   flex-direction: column;
   padding-bottom: 0;
+  margin-top: 50px;
 `;
 
 const IconImage = styled.img`

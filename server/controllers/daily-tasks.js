@@ -5,7 +5,6 @@ var Task = require("../models/task");
 var filter = moment().format("MMM Do YY");
 
 const setFilter = (req, res) => {
-  console.log("gets hereee!!!");
   // filter = req.body;
   console.log(filter);
   // return Task.find({ date: filter })

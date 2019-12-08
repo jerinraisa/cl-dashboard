@@ -1,9 +1,9 @@
 import React from "react";
 import { MainContainer, Row } from "../components/Global/Sections.jsx";
-import Form from "../components/TaskList/index.jsx";
+import Form from "../components/task-list/index.jsx";
 import styled from "styled-components";
 import ArchiveImg from "../assets/20x20.png";
-import Archive from "../components/ArchiveSelector/index.jsx";
+import Archive from "../components/archive-selector/index.jsx";
 import * as moment from "moment";
 
 let date = moment().format("MMM Do YY");
@@ -57,7 +57,7 @@ const ArchivesContainer = styled.div`
   /* border: 1px solid #99a3ad; */
 `;
 
-const ArcImg = styled.img`
+const ArchiveImage = styled.img`
   display: flex;
   padding-left: 20px;
   padding-top: 10px;
@@ -102,7 +102,7 @@ class DailyTasks extends React.Component {
         <ArchivesContainer>
           <Title>
             <h5>Archives</h5>
-            <ArcImg src={ArchiveImg} />
+            <ArchiveImage src={ArchiveImg} />
           </Title>
           <DateSelector>
             <Archive />

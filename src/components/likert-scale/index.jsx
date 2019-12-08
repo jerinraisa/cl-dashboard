@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css";
 import styled from "styled-components";
 import Option from "./LikertOptions/Option";
-import Prompts from "./Prompts";
+import Prompts from "../../constants/prompts";
 import axios from "axios";
 
 let submitted = false; // add a condition for when the week resets
@@ -24,14 +24,12 @@ class Likert extends React.Component {
   }
 
   submit = () => {
-    if (window.confirm("Submit?")) {
-      this.setState({
-        submitted: true
-      });
-      submitted = true;
-      this.saveValues();
-      return true;
-    }
+    this.setState({
+      submitted: true
+    });
+    submitted = true;
+    this.saveValues();
+    return true;
   };
 
   getValues = (numVal, prompt) => {

@@ -1,8 +1,8 @@
 import React from "react";
 import { MainContainer, Row } from "../components/Global/Sections";
 import styled from "styled-components";
-import GoalList from "../components/GoalsList/index.jsx";
-import ProgressBar from "../components/ProgressBar/index.jsx";
+import GoalList from "../components/goals-list/index.jsx";
+import ProgressBar from "../components/progress-bar/index.jsx";
 import axios from "axios";
 import { isTSExpressionWithTypeArguments } from "@babel/types";
 

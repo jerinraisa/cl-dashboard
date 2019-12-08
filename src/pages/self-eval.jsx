@@ -1,6 +1,6 @@
 import React from "react";
-import Form from "../components/TaskList/index.jsx";
-import Likert from "../components/Likert/index.jsx";
+import Form from "../components/task-list/index.jsx";
+import Likert from "../components/likert-scale/index.jsx";
 import styled from "styled-components";
 import { MainContainer, Row } from "../components/Global/Sections.jsx";
 
@@ -17,13 +17,23 @@ const LikertContainer = styled.div`
   padding-top: 15px;
 `;
 
+// Date settings
+var options = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+};
+
+let d = new Date();
+
 class SelfEval extends React.Component {
   render() {
     return (
       <div>
         <MainContainer>
           <Row>
-            <h2>Week: September 1 - September 3, 2019</h2>
+            <h2>Week Of : {d.toLocaleDateString("en-US", options)}</h2>
           </Row>
           <hr />
           <ListContainer>
