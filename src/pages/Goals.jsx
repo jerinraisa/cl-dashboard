@@ -3,6 +3,8 @@ import { MainContainer, Row } from "../components/Global/Sections";
 import styled from "styled-components";
 import GoalList from "../components/GoalsList/index.jsx";
 import ProgressBar from "../components/ProgressBar/index.jsx";
+import axios from "axios";
+import { isTSExpressionWithTypeArguments } from "@babel/types";
 
 const DateContainer = styled.div`
   display: flex;
@@ -74,56 +76,52 @@ class Goals extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.listUpdate();
+  }
+
   addItem = e => {
     e.preventDefault();
     const element = document.getElementById("goalInput");
 
     if (element.value !== "") {
       var newItem = {
-        text: element.value,
-        key: Date.now()
+        goal: element.value,
+        key: Date.now(),
+        date: Date.now(), // change this to MMM DD YY later
+        complete: false
       };
 
-      this.setState(prevState => {
-        return {
-          items: prevState.items.concat(newItem)
-        };
-      });
-
+      axios.post("/goals/add-goals", newItem);
+      this.listUpdate();
       element.value = "";
     }
+  };
 
-    console.log(this.state.items);
+  listUpdate = () => {
+    axios.get("/goals/get-goals").then(res => {
+      this.setState({
+        items: res.data
+      });
+    });
+    axios.get("/goals/complete").then(res => {
+      this.setState({
+        completedItems: res.data
+      });
+    });
   };
 
   completeGoal = goal => {
-    var items = this.state.items.filter(function(item) {
-      return item.key !== goal.key;
-    });
-
-    this.setState({
-      items,
-      completedItems: [...this.state.completedItems, goal]
-    });
-  };
-
-  incompleteGoal = goal => {
-    var completedItems = this.state.completedItems.filter(function(item) {
-      return item.key !== goal.key;
-    });
-
-    this.setState({
-      completedItems,
-      items: [...this.state.items, goal]
-    });
+    var newComplete = !goal.complete;
+    axios.put("/goals/edit-goals/" + goal._id, { goal, newComplete });
+    this.listUpdate();
   };
 
   deleteGoal = goal => {
-    var items = this.state.items.filter(function(item) {
-      return item.key !== goal.key;
+    axios.delete("/goals/remove-goals", {
+      data: goal
     });
-
-    this.setState({ items });
+    this.listUpdate();
   };
 
   render() {
@@ -165,10 +163,10 @@ class Goals extends React.Component {
           <CompleteBox>
             {this.state.completedItems.map((value, i) => (
               <h6
-                key={`${value.text}-${i}`}
-                onClick={() => this.incompleteGoal(value)}
+                key={`${value.goal}-${i}`}
+                onClick={() => this.completeGoal(value)}
               >
-                {value.text}
+                {value.goal}
               </h6>
             ))}
           </CompleteBox>

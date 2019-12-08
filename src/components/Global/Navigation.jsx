@@ -8,15 +8,22 @@ const NavWrapper = styled.div`
   display: flex;
   position: fixed;
   flex-direction: column;
-  height: 95vh;
+  height: 100vh;
   width: 200px;
   bottom: 0;
-  justify-content: space-evenly;
+  justify-content: center;
   padding-left: 3em;
-  padding-top: 10px;
-  padding-bottom: 40px;
+  padding-bottom: 10vh;
   background: #e6a541;
   font-size: 1em;
+`;
+
+const Links = styled.div`
+  display: flex;
+  height: 25vh;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-bottom: 0;
 `;
 
 const IconImage = styled.img`
@@ -43,10 +50,6 @@ const ProfileContainer = styled.div`
 `;
 
 class Navigation extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <NavWrapper>
@@ -54,18 +57,20 @@ class Navigation extends React.Component {
           <IconImage src={Logo} />
           <NameText>Lynn</NameText>
         </ProfileContainer>
-        {Pages.map(page => {
-          return (
-            <NavLink
-              to={page.path}
-              title={page.name}
-              activeClassName="curr-page"
-              onClick={e => this.props.newPage(e, page.name)}
-            >
-              {page.name}
-            </NavLink>
-          );
-        })}
+        <Links>
+          {Pages.map(page => {
+            return (
+              <NavLink
+                to={page.path}
+                title={page.name}
+                activeClassName="curr-page"
+                onClick={e => this.props.newPage(e, page.name)}
+              >
+                {page.name}
+              </NavLink>
+            );
+          })}
+        </Links>
       </NavWrapper>
     );
   }

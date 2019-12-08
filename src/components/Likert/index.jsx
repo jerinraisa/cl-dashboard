@@ -2,6 +2,8 @@ import React from "react";
 import "./index.css";
 import styled from "styled-components";
 import Option from "./LikertOptions/Option";
+import Prompts from "./Prompts";
+import axios from "axios";
 
 let submitted = false; // add a condition for when the week resets
 
@@ -17,30 +19,56 @@ class Likert extends React.Component {
     super(props);
     this.state = {
       submitted: false,
-      data: null
+      promptData: []
     };
   }
 
   submit = () => {
-    var confirm = window.confirm("Submit?");
-    if (confirm) {
+    if (window.confirm("Submit?")) {
       this.setState({
         submitted: true
       });
       submitted = true;
-
+      this.saveValues();
       return true;
-      // submit values to some database
     }
   };
+
+  getValues = (numVal, prompt) => {
+    let exists = false;
+    const { promptData } = this.state;
+    exists = promptData.find(existingPrompts => existingPrompts.id === prompt);
+    if (exists) {
+      promptData.map((data, i) => {
+        if (data.id === prompt) {
+          data.value = numVal;
+        }
+      });
+    } else {
+      promptData.push({
+        id: prompt,
+        value: numVal
+      });
+    }
+    this.setState({ promptData });
+    console.log(promptData);
+  };
+
+  saveValues() {
+    axios.post("/evaluation/submit", {
+      week: "1st week of December",
+      scores: this.state.promptData
+    });
+  }
 
   render() {
     return (
       <>
-        <Option prompt={"I managed my time well."} />
-        <Option prompt={"I completed all of my assigned tasks."} />
-        <Option prompt={"I collaborated with my coworkers."} />
-        <Option prompt={"I improved on x skill."} />
+        <section>
+          {Prompts.map((prompt, i) => (
+            <Option callBack={this.getValues} key={i} id={i} prompt={prompt} />
+          ))}
+        </section>
         <ButtonContainer>
           <button
             type={"submit"}

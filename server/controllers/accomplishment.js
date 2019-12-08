@@ -10,7 +10,7 @@ const get = (req, res) => {
 
 const add = (req, res) => {
   var newAccomplishment = new Accomplishment(req.body);
-  newAccomplishment.date = moment().format("MMM Do YY");
+  newAccomplishment.date = moment().format();
   newAccomplishment.save();
 };
 

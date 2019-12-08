@@ -1,5 +1,4 @@
 import Dropdown from "react-dropdown";
-import ReactDOM from "react-dom";
 import React, { Component, PropTypes } from "react";
 import styled from "styled-components";
 import "./index.css";

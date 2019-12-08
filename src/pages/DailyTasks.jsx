@@ -4,7 +4,9 @@ import Form from "../components/TaskList/index.jsx";
 import styled from "styled-components";
 import ArchiveImg from "../assets/20x20.png";
 import Archive from "../components/ArchiveSelector/index.jsx";
+import * as moment from "moment";
 
+let date = moment().format("MMM Do YY");
 let d = new Date();
 
 const ListContainer = styled.div`
@@ -72,6 +74,11 @@ var options = {
 };
 
 class DailyTasks extends React.Component {
+  setDate() {
+    date = moment()
+      .subtract(1, "days")
+      .format("MMM Do YY");
+  }
   render() {
     return (
       <MainContainer>
@@ -82,10 +89,15 @@ class DailyTasks extends React.Component {
         <DateContainer>
           <Row>
             <h5>{d.toLocaleDateString("en-US", options)}</h5>
+            <button onClick={this.setDate}>Yesterday</button>
           </Row>
         </DateContainer>
         <ListContainer>
-          <Form name="daily-tasks" placeholder={"What did I do today?"} />
+          <Form
+            name="daily-tasks"
+            placeholder={"What did I do today?"}
+            date={date}
+          />
         </ListContainer>
         <ArchivesContainer>
           <Title>

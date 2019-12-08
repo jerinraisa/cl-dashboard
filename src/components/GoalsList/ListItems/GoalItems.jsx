@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 
 class GoalItems extends Component {
-  constructor(props) {
-    super(props);
-  }
+  handleChange = (e, item) => {
+    const isChecked = e.target.checked;
+    if (isChecked) {
+    }
+  };
 
   onCompleteGoal = (e, item) => {
     if (e.target.checked) {
@@ -19,7 +21,7 @@ class GoalItems extends Component {
         <label className="checkbox">
           <input type="checkbox" onChange={e => this.onCompleteGoal(e, item)} />
         </label>
-        {item.text}
+        {item.goal}
         <button
           onClick={() => this.props.deleteGoal(item)}
           className="remove-button"
