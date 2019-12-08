@@ -4,8 +4,6 @@ import axios from "axios";
 import "./index.css";
 import * as moment from "moment";
 
-let date = moment().format("MMM Do YY");
-
 const ListCard = styled.div`
   margin: 3vh 0;
   padding: 10px;
