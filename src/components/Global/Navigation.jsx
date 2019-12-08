@@ -52,7 +52,7 @@ class Navigation extends React.Component {
       <NavWrapper>
         <ProfileContainer>
           <IconImage src={Logo} />
-          <NameText>Name</NameText>
+          <NameText>Lynn</NameText>
         </ProfileContainer>
         {Pages.map(page => {
           return (

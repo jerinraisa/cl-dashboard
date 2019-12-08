@@ -13,14 +13,6 @@ class GoalItems extends Component {
     }
   };
 
-  // handleChange = (e, undo_item) => {
-  //   if (e.target.checked) {
-  //     setTimeout(() => {
-  //       this.props.incompleteGoal(undo_item);
-  //     }, 200);
-  //   }
-  // };
-
   createItem = item => {
     return (
       <li key={item.key}>
