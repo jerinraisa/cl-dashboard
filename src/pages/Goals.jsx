@@ -77,7 +77,7 @@ class Goals extends React.Component {
   }
 
   componentDidMount() {
-    this.listUpdate();
+    this.listUpdate().then(console.log("updated"));
   }
 
   addItem = e => {
@@ -93,8 +93,7 @@ class Goals extends React.Component {
       };
 
       axios.post("/goals/add-goals", newItem);
-      this.listUpdate();
-      element.value = "";
+      this.listUpdate().then((element.value = ""));
     }
   };
 
@@ -139,7 +138,6 @@ class Goals extends React.Component {
           </DateContainer>
           <TopContainer>
             <ListContainer>
-              {/* <List placeholder={"Add a goal"} /> */}
               <GoalList
                 items={this.state.items}
                 completeGoal={this.completeGoal}
@@ -151,8 +149,8 @@ class Goals extends React.Component {
               <h5>Goal Tracker</h5>
               <ProgressBarContainer>
                 <ProgressBar
-                  items={this.state.items}
-                  completedItems={this.state.completedItems}
+                  items={this.state.items.length}
+                  completedItems={this.state.completedItems.length}
                 />
               </ProgressBarContainer>
             </TrackerContainer>

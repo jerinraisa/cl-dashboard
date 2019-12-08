@@ -18,7 +18,7 @@ class Option extends React.Component {
       value: key
     });
 
-    this.props.callBack(key, this.props.prompt);
+    this.props.sendValues(key, this.props.prompt);
   };
 
   render() {

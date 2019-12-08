@@ -29,16 +29,18 @@ const getComplete = (req, res) => {
 
 const edit = (req, res) => {
   const { goal, newComplete } = req.body;
+  const { _id } = goal;
   return Goal.findByIdAndUpdate(
-    goal._id,
+    _id,
     { complete: newComplete },
-    { returnOriginal: false },
-    (err, todo) => {
-      // Handle any possible database errors
-      if (err) return res.status(500).send(err);
-      return res.send(todo);
-    }
-  );
+    { returnOriginal: false }
+  )
+    .then(res.json({ message: "edit complete" }))
+    .catch(error =>
+      res.status(500).json({
+        message: "Error deleting Goal"
+      })
+    );
 };
 
 const remove = (req, res) => {
