@@ -77,7 +77,7 @@ class Goals extends React.Component {
   }
 
   componentDidMount() {
-    this.listUpdate().then(console.log("updated"));
+    this.listUpdate();
   }
 
   addItem = e => {
@@ -93,7 +93,8 @@ class Goals extends React.Component {
       };
 
       axios.post("/goals/add-goals", newItem);
-      this.listUpdate().then((element.value = ""));
+      this.listUpdate();
+      element.value = "";
     }
   };
 
