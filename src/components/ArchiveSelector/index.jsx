@@ -10,20 +10,25 @@ const ArchiveContainer = styled.div`
   justify-content: space-between;
 `;
 class Archive extends Component {
-  state = {
-    day: "",
-    month: "",
-    year: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      day: "",
+      month: "",
+      year: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-  handleChange = (property, value) => {
-    this.setState({ ...state, ...{ [property]: value } });
-    console.log(e);
-  };
+  handleChange(property, value) {
+    this.setState({ ...this.state, [property]: value });
+    // console.log(e);
+  }
 
   select(e) {
     alert(e.target.value);
   }
+
   render() {
     return (
       <ArchiveContainer>
